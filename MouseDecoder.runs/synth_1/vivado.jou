@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Tue Mar 15 13:56:46 2022
+# Process ID: 45253
+# Current directory: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1
+# Command line: vivado -log BCDDisplay.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source BCDDisplay.tcl
+# Log file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/BCDDisplay.vds
+# Journal file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source BCDDisplay.tcl -notrace
