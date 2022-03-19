@@ -17,8 +17,6 @@
 -- Additional Comments:
 -- 
 ----------------------------------------------------------------------------------
-
-
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
@@ -28,16 +26,13 @@ entity BCDDisplay is
     Port(
         Reset:      in STD_LOGIC;
         clock_100Mhz:   in STD_LOGIC;
+        displayed_number: in STD_LOGIC_VECTOR (15 downto 0);
         Display:    out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
 end BCDDisplay;
 
 architecture Behavioral of BCDDisplay is
-signal one_second_counter: STD_LOGIC_VECTOR (27 downto 0);
-signal one_second_enable: STD_LOGIC;
--- one second enable for counting numbers
-signal displayed_number: STD_LOGIC_VECTOR (15 downto 0);
 signal LED_BCD: STD_LOGIC_VECTOR (3 downto 0);
 signal refresh_counter: STD_LOGIC_VECTOR (19 downto 0);
 -- creating 10.5ms refresh period
@@ -47,26 +42,35 @@ signal LED_activating_counter: std_logic_vector(1 downto 0);
 -- activates    LED1    LED2   LED3   LED4
 -- and repeat
 
-component BinaryToBCD is
-    Port(
-        Number :    in  STD_LOGIC_VECTOR (15 downto 0);
-        Ones :      out STD_LOGIC_VECTOR (3 downto 0);
-        Tens :      out STD_LOGIC_VECTOR (3 downto 0);
-        Hundreds :  out STD_LOGIC_VECTOR (3 downto 0);
-        Thousands : out STD_LOGIC_VECTOR (3 downto 0)
-    );
-end component;
-signal O, T, H, Th: STD_LOGIC_VECTOR (3 downto 0);
+function to_bcd ( bin : std_logic_vector(15 downto 0) ) return std_logic_vector is
+variable I : integer:=0;
+variable bcd : std_logic_vector(15 downto 0) := (others => '0');
+variable tmp : std_logic_vector(15 downto 0) := bin;
 
 begin
+    for I in 0 to 15 loop
+        BCD(15 downto 1) := BCD(14 downto 0);
+        BCD(0) := Tmp(15);
+        Tmp(15 downto 1) := Tmp(14 downto 0);
+        Tmp(0) := '0';
+        
+        if I < 15 and BCD(3 downto 0) > "0100" then
+            BCD(3 downto 0) := BCD(3 downto 0) + "0011";
+        end if;
+        if I < 15 and BCD(7 downto 4) > "0100" then
+            BCD(7 downto 4) := BCD(7 downto 4) + "0011";
+        end if;
+        if I < 15 and BCD(11 downto 8) > "0100" then
+            BCD(11 downto 8) := BCD(11 downto 8) + "0011";
+        end if;
+        if I < 15 and BCD(15 downto 12) > "0100" then
+            BCD(15 downto 12) := BCD(15 downto 12) + "0011";
+        end if;
+    end loop;
+return bcd;
+end to_bcd;
 
-BCD_Conversion: BinaryToBCD port map (
-    Number => displayed_number, 
-    Ones => O,
-    Tens => T,
-    Hundreds => H,
-    Thousands => Th
-);
+begin
 
 process(LED_BCD)
 begin
@@ -102,54 +106,31 @@ end process;
  LED_activating_counter <= refresh_counter(19 downto 18);
 -- 4-to-1 MUX to generate anode activating signals for 4 LEDs 
 process(LED_activating_counter)
+variable Parsed: STD_LOGIC_VECTOR(15 downto 0);
 begin
+    Parsed := to_bcd(displayed_number);
     case LED_activating_counter is
     when "00" =>
         Anodes <= "0111"; 
         -- activate LED1 and Deactivate LED2, LED3, LED4
-        LED_BCD <= Th;
+        LED_BCD <= Parsed(15 downto 12);
         -- the first hex digit of the 16-bit number
     when "01" =>
     Anodes <= "1011"; 
         -- activate LED2 and Deactivate LED1, LED3, LED4
-        LED_BCD <= H;
+        LED_BCD <= Parsed(11 downto 8);
         -- the second hex digit of the 16-bit number
     when "10" =>
         Anodes <= "1101"; 
         -- activate LED3 and Deactivate LED2, LED1, LED4
-        LED_BCD <= T;
+        LED_BCD <= Parsed(7 downto 4);
         -- the third hex digit of the 16-bit number
     when "11" =>
         Anodes <= "1110"; 
         -- activate LED4 and Deactivate LED2, LED3, LED1
-        LED_BCD <= O;
+        LED_BCD <= Parsed(3 downto 0);
         -- the fourth hex digit of the 16-bit number    
     end case;
-end process;
--- Counting the number to be displayed on 4-digit 7-segment Display 
--- on Basys 3 FPGA board
-process(clock_100Mhz, Reset)
-begin
-        if(Reset='1') then
-            one_second_counter <= (others => '0');
-        elsif(rising_edge(clock_100Mhz)) then
-            if(one_second_counter>=x"5F5E0FF") then
-                one_second_counter <= (others => '0');
-            else
-                one_second_counter <= one_second_counter + "0000001";
-            end if;
-        end if;
-end process;
-one_second_enable <= '1' when one_second_counter=x"5F5E0FF" else '0';
-process(clock_100Mhz, Reset)
-begin
-        if(Reset='1') then
-            displayed_number <= (others => '0');
-        elsif(rising_edge(clock_100Mhz)) then
-             if(one_second_enable='1') then
-                displayed_number <= displayed_number + x"0001";
-             end if;
-        end if;
 end process;
 
 end Behavioral;

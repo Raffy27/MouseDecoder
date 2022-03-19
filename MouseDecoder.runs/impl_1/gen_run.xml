@@ -1,83 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1647714875">
+<GenRun Id="impl_1" LaunchPart="xc7a35ticpg236-1L" LaunchTime="1647718106">
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-DRC" Name="BCDDisplay.drc"/>
-  <File Type="BG-BGN" Name="BCDDisplay.bgn"/>
-  <File Type="BITSTR-SYSDEF" Name="BCDDisplay.sysdef"/>
+  <File Type="BG-DRC" Name="CommandUnit.drc"/>
+  <File Type="BG-BGN" Name="CommandUnit.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="CommandUnit.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="BCDDisplay.ltx"/>
-  <File Type="BITSTR-MMI" Name="BCDDisplay.mmi"/>
-  <File Type="BITSTR-BMM" Name="BCDDisplay_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="BCDDisplay.nky"/>
-  <File Type="BITSTR-RBT" Name="BCDDisplay.rbt"/>
-  <File Type="BITSTR-MSK" Name="BCDDisplay.msk"/>
-  <File Type="BG-BIN" Name="BCDDisplay.bin"/>
-  <File Type="BG-BIT" Name="BCDDisplay.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="BCDDisplay_bus_skew_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="BCDDisplay_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="BCDDisplay_bus_skew_postroute_physopted.rpt"/>
-  <File Type="RDI-RDI" Name="BCDDisplay.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="BCDDisplay_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="BCDDisplay_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="BCDDisplay_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="BCDDisplay_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="BCDDisplay_postroute_physopt.dcp"/>
-  <File Type="ROUTE-BUS-SKEW" Name="BCDDisplay_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="BCDDisplay_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="BCDDisplay_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="BCDDisplay_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-TIMING-PB" Name="BCDDisplay_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="BCDDisplay_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="BCDDisplay_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="BCDDisplay_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="BCDDisplay_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="BCDDisplay_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="BCDDisplay_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="BCDDisplay_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="BCDDisplay_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="BCDDisplay_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="BCDDisplay_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="BCDDisplay_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="BCDDisplay_drc_routed.rpt"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="BCDDisplay_routed_bb.dcp"/>
-  <File Type="ROUTE-DCP" Name="BCDDisplay_routed.dcp"/>
-  <File Type="ROUTE-ERROR-DCP" Name="BCDDisplay_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="BCDDisplay_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="BCDDisplay_drc_physopted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="BCDDisplay_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="BCDDisplay_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="BCDDisplay_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="BCDDisplay_timing_summary_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="BCDDisplay_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="BCDDisplay_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="BCDDisplay_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="BCDDisplay_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="BCDDisplay_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="BCDDisplay_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="BCDDisplay_io_placed.rpt"/>
-  <File Type="PLACE-DCP" Name="BCDDisplay_placed.dcp"/>
-  <File Type="PWROPT-TIMING" Name="BCDDisplay_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="BCDDisplay_drc_pwropted.rpt"/>
-  <File Type="PWROPT-DCP" Name="BCDDisplay_pwropt.dcp"/>
-  <File Type="OPT-TIMING" Name="BCDDisplay_timing_summary_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="BCDDisplay.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="BCDDisplay_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="BCDDisplay_drc_opted.rpt"/>
-  <File Type="OPT-DCP" Name="BCDDisplay_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="BCDDisplay_timing_summary_init.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="BCDDisplay_bus_skew_routed.rpx"/>
-  <File Type="REPORTS-TCL" Name="BCDDisplay_reports.tcl"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="BCDDisplay_bus_skew_routed.pb"/>
-  <File Type="PA-TCL" Name="BCDDisplay.tcl"/>
+  <File Type="BITSTR-LTX" Name="CommandUnit.ltx"/>
+  <File Type="BITSTR-MMI" Name="CommandUnit.mmi"/>
+  <File Type="BITSTR-BMM" Name="CommandUnit_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="CommandUnit.nky"/>
+  <File Type="BITSTR-RBT" Name="CommandUnit.rbt"/>
+  <File Type="BITSTR-MSK" Name="CommandUnit.msk"/>
+  <File Type="BG-BIN" Name="CommandUnit.bin"/>
+  <File Type="BG-BIT" Name="CommandUnit.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="CommandUnit_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="CommandUnit_bus_skew_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="CommandUnit_bus_skew_postroute_physopted.rpt"/>
+  <File Type="RDI-RDI" Name="CommandUnit.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="CommandUnit_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="CommandUnit_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="CommandUnit_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="CommandUnit_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="CommandUnit_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="CommandUnit_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="CommandUnit_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="CommandUnit_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="CommandUnit_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="CommandUnit_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="CommandUnit_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="CommandUnit_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="CommandUnit_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="CommandUnit_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="CommandUnit_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="CommandUnit_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="CommandUnit_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="CommandUnit_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="CommandUnit_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="CommandUnit_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="CommandUnit_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="CommandUnit_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="CommandUnit_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="CommandUnit_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="CommandUnit_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="CommandUnit_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="CommandUnit_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="CommandUnit_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="CommandUnit_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="CommandUnit_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="CommandUnit_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="CommandUnit_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="CommandUnit_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="CommandUnit_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="CommandUnit_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="CommandUnit_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="CommandUnit_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="CommandUnit_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="CommandUnit_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="CommandUnit_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="CommandUnit_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="CommandUnit_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="CommandUnit_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="CommandUnit.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="CommandUnit_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="CommandUnit_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="CommandUnit_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="CommandUnit_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="CommandUnit_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="CommandUnit_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="CommandUnit_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="CommandUnit.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/sources_1/new/BinaryToBCD.vhd">
+    <File Path="$PSRCDIR/sources_1/new/BCDDisplay.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/BCDDisplay.vhd">
+    <File Path="$PSRCDIR/sources_1/new/CommandUnit.vhd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -85,7 +85,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="BCDDisplay"/>
+      <Option Name="TopModule" Val="CommandUnit"/>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
