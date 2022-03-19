@@ -30,7 +30,10 @@ set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 set_property ip_output_repo /home/raffy/Dev/MouseDecoder/MouseDecoder.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_vhdl -library xil_defaultlib /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/BCDDisplay.vhd
+read_vhdl -library xil_defaultlib {
+  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/BinaryToBCD.vhd
+  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/BCDDisplay.vhd
+}
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

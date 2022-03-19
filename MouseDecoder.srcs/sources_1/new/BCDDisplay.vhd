@@ -46,7 +46,27 @@ signal LED_activating_counter: std_logic_vector(1 downto 0);
 -- count         0    ->  1  ->  2  ->  3
 -- activates    LED1    LED2   LED3   LED4
 -- and repeat
+
+component BinaryToBCD is
+    Port(
+        Number :    in  STD_LOGIC_VECTOR (15 downto 0);
+        Ones :      out STD_LOGIC_VECTOR (3 downto 0);
+        Tens :      out STD_LOGIC_VECTOR (3 downto 0);
+        Hundreds :  out STD_LOGIC_VECTOR (3 downto 0);
+        Thousands : out STD_LOGIC_VECTOR (3 downto 0)
+    );
+end component;
+signal O, T, H, Th: STD_LOGIC_VECTOR (3 downto 0);
+
 begin
+
+BCD_Conversion: BinaryToBCD port map (
+    Number => displayed_number, 
+    Ones => O,
+    Tens => T,
+    Hundreds => H,
+    Thousands => Th
+);
 
 process(LED_BCD)
 begin
@@ -87,22 +107,22 @@ begin
     when "00" =>
         Anodes <= "0111"; 
         -- activate LED1 and Deactivate LED2, LED3, LED4
-        LED_BCD <= displayed_number(15 downto 12);
+        LED_BCD <= Th;
         -- the first hex digit of the 16-bit number
     when "01" =>
     Anodes <= "1011"; 
         -- activate LED2 and Deactivate LED1, LED3, LED4
-        LED_BCD <= displayed_number(11 downto 8);
+        LED_BCD <= H;
         -- the second hex digit of the 16-bit number
     when "10" =>
         Anodes <= "1101"; 
         -- activate LED3 and Deactivate LED2, LED1, LED4
-        LED_BCD <= displayed_number / 10;
+        LED_BCD <= T;
         -- the third hex digit of the 16-bit number
     when "11" =>
         Anodes <= "1110"; 
         -- activate LED4 and Deactivate LED2, LED3, LED1
-        LED_BCD <= displayed_number mod 10;
+        LED_BCD <= O;
         -- the fourth hex digit of the 16-bit number    
     end case;
 end process;
