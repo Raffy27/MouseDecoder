@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Sat Mar 19 21:30:46 2022
+| Date             : Sat Mar 19 21:52:18 2022
 | Host             : Popsicle running 64-bit Zorin OS 16.1
 | Command          : report_power -file CommandUnit_power_routed.rpt -pb CommandUnit_power_summary_routed.pb -rpx CommandUnit_power_routed.rpx
 | Design           : CommandUnit
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 22.151       |
+| Total On-Chip Power (W)  | 22.415       |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 21.823       |
+| Dynamic (W)              | 22.087       |
 | Device Static (W)        | 0.329        |
 | Effective TJA (C/W)      | 5.0          |
 | Max Ambient (C)          | 0.0          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     2.232 |      154 |       --- |             --- |
-|   LUT as Logic |     2.198 |       89 |     20800 |            0.43 |
-|   CARRY4       |     0.018 |        9 |      8150 |            0.11 |
-|   Register     |     0.012 |       36 |     41600 |            0.09 |
+| Slice Logic    |     2.371 |      215 |       --- |             --- |
+|   LUT as Logic |     2.320 |      115 |     20800 |            0.55 |
+|   CARRY4       |     0.031 |       16 |      8150 |            0.20 |
+|   Register     |     0.016 |       62 |     41600 |            0.15 |
 |   BUFG         |     0.005 |        1 |        32 |            3.13 |
-|   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     1.658 |      149 |       --- |             --- |
-| I/O            |    17.932 |       14 |       106 |           13.21 |
+|   Others       |     0.000 |        5 |       --- |             --- |
+| Signals        |     1.767 |      183 |       --- |             --- |
+| I/O            |    17.948 |       14 |       106 |           13.21 |
 | Static Power   |     0.329 |          |           |                 |
-| Total          |    22.151 |          |           |                 |
+| Total          |    22.415 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     4.311 |       4.099 |      0.211 |
+| Vccint    |       0.950 |     4.575 |       4.364 |      0.211 |
 | Vccaux    |       1.800 |     0.705 |       0.657 |      0.048 |
-| Vcco33    |       3.300 |     5.075 |       5.074 |      0.001 |
+| Vcco33    |       3.300 |     5.079 |       5.078 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,8 +138,8 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| CommandUnit      |    21.823 |
-|   Display_Number |     0.885 |
+| CommandUnit      |    22.087 |
+|   Display_Number |     0.868 |
 +------------------+-----------+
 
 

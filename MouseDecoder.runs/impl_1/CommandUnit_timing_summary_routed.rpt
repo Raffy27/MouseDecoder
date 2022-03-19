@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sat Mar 19 21:30:46 2022
+| Date         : Sat Mar 19 21:52:18 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_timing_summary -max_paths 10 -file CommandUnit_timing_summary_routed.rpt -pb CommandUnit_timing_summary_routed.pb -rpx CommandUnit_timing_summary_routed.rpx -warn_on_violation
 | Design       : CommandUnit
@@ -53,7 +53,11 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 36 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
+ There are 16 register/latch pins with no clock driven by root clock pin: Button (HIGH)
+
+ There are 46 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
+
+ There are 16 register/latch pins with no clock driven by root clock pin: BtnTransform_reg[25]/Q (HIGH)
 
 
 2. checking constant_clock
@@ -68,14 +72,14 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 88 pins that are not constrained for maximum delay. (HIGH)
+ There are 124 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 2 input ports with no input delay specified. (HIGH)
+ There is 1 input port with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
@@ -116,7 +120,7 @@ Table of Contents
 
 12. checking latch_loops
 ------------------------
- There are 0 combinational latch loops in the design through latch input
+ There are 16 combinational latch loops in the design through latch input (HIGH)
 
 
 
