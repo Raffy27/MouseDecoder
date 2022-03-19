@@ -5,6 +5,7 @@ set_property PACKAGE_PIN T2 [get_ports Reset]
         set_property IOSTANDARD LVCMOS33 [get_ports Reset]
 set_property PACKAGE_PIN T17 [get_ports Button]     
         set_property IOSTANDARD LVCMOS33 [get_ports Button]
+        set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets Button_IBUF]
 #seven-segment LED display
         set_property PACKAGE_PIN W7 [get_ports {Segments[6]}]
             set_property IOSTANDARD LVCMOS33 [get_ports {Segments[6]}]

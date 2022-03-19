@@ -53,26 +53,13 @@ component BCDDisplay is
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
 end component;
-signal BtnTransform: STD_LOGIC_VECTOR(25 downto 0) := (others => '0');
 signal Number: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 begin
-    process (Reset, Clock)
-    begin
-        if Reset = '1' then
-            BtnTransform <= (others => '0');
-        elsif rising_edge(Clock) then
-            if BtnTransform(25) = '1' then
-                BtnTransform <= (others => '0');
-            else
-                BtnTransform <= BtnTransform + 1;
-            end if;
-        end if;
-    end process;
-    process(Reset, BtnTransform, Button)
+    process(Reset, Button)
     begin
         if Reset = '1' then
             Number <= (others => '0');
-        elsif BtnTransform(25) = '1' then
+        elsif falling_edge(Button) then
             if Button = '1' then
                 Number <= Number + 1;
             end if;
