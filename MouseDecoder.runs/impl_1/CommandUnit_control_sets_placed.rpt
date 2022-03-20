@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sat Mar 19 22:03:52 2022
+| Date         : Sun Mar 20 11:25:31 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt
 | Design       : CommandUnit
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     2 |
-|    Minimum number of control sets                        |     2 |
+| Total control sets                                       |     3 |
+|    Minimum number of control sets                        |     3 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |     4 |
+| Unused register locations in slices containing registers |     6 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,10 +39,10 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     2 |
+| Total control sets |     3 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     0 |
-| >= 6 to < 8        |     0 |
+| >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
@@ -59,7 +59,7 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              20 |            5 |
+| No           | No                    | Yes                    |              26 |            6 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |              16 |            4 |
@@ -70,11 +70,12 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-------------------+------------------+------------------+------------------+----------------+
-|    Clock Signal   |   Enable Signal  | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+-------------------+------------------+------------------+------------------+----------------+
-| ~Button_IBUF_BUFG | Button_IBUF_BUFG | Reset_IBUF       |                4 |             16 |
-|  Clock_IBUF_BUFG  |                  | Reset_IBUF       |                5 |             20 |
-+-------------------+------------------+------------------+------------------+----------------+
++-------------------+-------------------+------------------+------------------+----------------+
+|    Clock Signal   |   Enable Signal   | Set/Reset Signal | Slice Load Count | Bel Load Count |
++-------------------+-------------------+------------------+------------------+----------------+
+|  MClock_IBUF_BUFG |                   | Reset_IBUF       |                1 |              6 |
+| ~MClock_IBUF_BUFG | Number[0]_i_1_n_0 | Reset_IBUF       |                4 |             16 |
+|  Clock_IBUF_BUFG  |                   | Reset_IBUF       |                5 |             20 |
++-------------------+-------------------+------------------+------------------+----------------+
 
 
