@@ -59,7 +59,7 @@ signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
 
 begin
-    -- TODO:
+    -- TODO: Extract as component
     process(Reset, MouseClock)
     begin
         if Reset = '1' then

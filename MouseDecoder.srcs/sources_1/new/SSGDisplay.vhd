@@ -53,17 +53,20 @@ begin
         Temp(15 downto 1) := Temp(14 downto 0);
         Temp(0) := '0';
         
-        if I < 15 and BCD(3 downto 0) > "0100" then
-            BCD(3 downto 0) := BCD(3 downto 0) + "0011";
-        end if;
-        if I < 15 and BCD(7 downto 4) > "0100" then
-            BCD(7 downto 4) := BCD(7 downto 4) + "0011";
-        end if;
-        if I < 15 and BCD(11 downto 8) > "0100" then
-            BCD(11 downto 8) := BCD(11 downto 8) + "0011";
-        end if;
-        if I < 15 and BCD(15 downto 12) > "0100" then
-            BCD(15 downto 12) := BCD(15 downto 12) + "0011";
+        -- Conditionally add 3
+        if I < 15 then
+            if BCD(3 downto 0) > 4 then
+                BCD(3 downto 0) := BCD(3 downto 0) + 3;
+            end if;
+            if BCD(7 downto 4) > 4 then
+                BCD(7 downto 4) := BCD(7 downto 4) + 3;
+            end if;
+            if BCD(11 downto 8) > 4 then
+                BCD(11 downto 8) := BCD(11 downto 8) + 3;
+            end if;
+            if BCD(15 downto 12) > 4 then
+                BCD(15 downto 12) := BCD(15 downto 12) + 3;
+            end if;
         end if;
     end loop;
 
