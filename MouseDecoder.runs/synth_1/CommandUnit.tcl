@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
 set_param chipscope.maxJobs 2
 create_project -in_memory -part xc7a35ticpg236-1L
 
@@ -31,7 +30,7 @@ set_property target_language VHDL [current_project]
 set_property ip_output_repo /home/raffy/Dev/MouseDecoder/MouseDecoder.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
-  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/BCDDisplay.vhd
+  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,10 +1,10 @@
 ##USB HID (PS/2)
-set_property PACKAGE_PIN C17 [get_ports MClock]                        
-        set_property IOSTANDARD LVCMOS33 [get_ports MClock]
-        set_property PULLUP true [get_ports MClock]
-set_property PACKAGE_PIN B17 [get_ports MData]                    
-        set_property IOSTANDARD LVCMOS33 [get_ports MData]    
-        set_property PULLUP true [get_ports MData]
+set_property PACKAGE_PIN C17 [get_ports MouseClock]                        
+        set_property IOSTANDARD LVCMOS33 [get_ports MouseClock]
+        set_property PULLUP true [get_ports MouseClock]
+set_property PACKAGE_PIN B17 [get_ports MouseData]                    
+        set_property IOSTANDARD LVCMOS33 [get_ports MouseData]    
+        set_property PULLUP true [get_ports MouseData]
 
 # Clock signal
 set_property PACKAGE_PIN W5 [get_ports Clock]

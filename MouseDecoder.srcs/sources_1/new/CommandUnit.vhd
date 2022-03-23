@@ -34,59 +34,63 @@ use IEEE.std_logic_unsigned.all;
 
 entity CommandUnit is
     Port(
-        Reset : in STD_LOGIC;
-        Clock : in STD_LOGIC;
-        MClock: in STD_LOGIC;
-        MData:  in STD_LOGIC;
-        Segments: out STD_LOGIC_VECTOR(6 downto 0);
+        Reset :     in STD_LOGIC;
+        Clock :     in STD_LOGIC;
+        MouseClock: in STD_LOGIC;
+        MouseData:  in STD_LOGIC;
+        Segments:   out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
 end CommandUnit;
 
 architecture Behavioral of CommandUnit is
 
-component BCDDisplay is
+component SSGDisplay is
     Port(
         Reset:      in STD_LOGIC;
-        clock_100Mhz:   in STD_LOGIC;
-        displayed_number: in STD_LOGIC_VECTOR (15 downto 0);
-        Display:    out STD_LOGIC_VECTOR(6 downto 0);
+        Clock:      in STD_LOGIC;
+        Number:     in STD_LOGIC_VECTOR (15 downto 0);
+        Segments:   out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
 end component;
-signal Number: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-signal MBits:  STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
+
+signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
+
 begin
-    process(Reset, MClock)
+    -- TODO:
+    process(Reset, MouseClock)
     begin
         if Reset = '1' then
-            MBits  <= (others => '0');
-        elsif rising_edge(MClock) then
-            if MBits <= 31 then
-                MBits <= MBits + 1;
+            MouseBits  <= (others => '0');
+        elsif rising_edge(MouseClock) then
+            if MouseBits <= 31 then
+                MouseBits <= MouseBits + 1;
             else
-                MBits <= (others => '0');
+                MouseBits <= (others => '0');
             end if;
         end if;
     end process;
     
-    process(Reset, MClock)
+    process(Reset, MouseClock)
     begin
         if Reset = '1' then
             Number <= (others => '0');
-        elsif falling_edge(MClock) then
-            if MBits = 1 then
-                if MData = '1' then
+        elsif falling_edge(MouseClock) then
+            -- TODO: New condition for left/right mode
+            if MouseBits = 1 then
+                if MouseData = '1' then
                     Number <= Number + 1;
                 end if;
             end if;
-            if MBits = 2 then
-                if MData = '1' and Number > 0 then
+            if MouseBits = 2 then
+                if MouseData = '1' and Number > 0 then
                     Number <= Number - 1;
                 end if;
             end if;
         end if;
     end process;
     
-    Display_Number: BCDDisplay port map (Reset, Clock, Number, Segments, Anodes);
+    Display_Number: SSGDisplay port map (Reset, Clock, Number, Segments, Anodes);
 end Behavioral;
