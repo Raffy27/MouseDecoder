@@ -34,6 +34,7 @@ use IEEE.std_logic_unsigned.all;
 
 entity CommandUnit is
     Port(
+        Debug:      out STD_LOGIC_VECTOR(4 downto 0);
         Reset :     in STD_LOGIC;
         Clock :     in STD_LOGIC;
         MouseClock: in STD_LOGIC;
@@ -47,15 +48,15 @@ architecture Behavioral of CommandUnit is
 
 component SSGDisplay is
     Port(
-        Reset:      in STD_LOGIC;
         Clock:      in STD_LOGIC;
-        Number:     in STD_LOGIC_VECTOR (15 downto 0);
+        Number:     in STD_LOGIC_VECTOR(15 downto 0);
         Segments:   out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
 end component;
 
 signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+-- Counter for the number of data bits sent by the mouse
 signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
 
 begin
@@ -92,5 +93,5 @@ begin
         end if;
     end process;
     
-    Display_Number: SSGDisplay port map (Reset, Clock, Number, Segments, Anodes);
+    Display_Number: SSGDisplay port map (Clock, Number, Segments, Anodes);
 end Behavioral;

@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Wed Mar 23 20:11:40 2022
+| Date         : Thu Mar 24 12:35:15 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt
 | Design       : CommandUnit
@@ -58,8 +58,8 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |               0 |            0 |
-| No           | No                    | Yes                    |              26 |            7 |
+| No           | No                    | No                     |              20 |            5 |
+| No           | No                    | Yes                    |               6 |            2 |
 | No           | Yes                   | No                     |               0 |            0 |
 | Yes          | No                    | No                     |               0 |            0 |
 | Yes          | No                    | Yes                    |              16 |            4 |
@@ -75,7 +75,7 @@ Table of Contents
 +-----------------------+-------------------+------------------+------------------+----------------+
 |  MouseClock_IBUF_BUFG |                   | Reset_IBUF       |                2 |              6 |
 | ~MouseClock_IBUF_BUFG | Number[0]_i_1_n_0 | Reset_IBUF       |                4 |             16 |
-|  Clock_IBUF_BUFG      |                   | Reset_IBUF       |                5 |             20 |
+|  Clock_IBUF_BUFG      |                   |                  |                5 |             20 |
 +-----------------------+-------------------+------------------+------------------+----------------+
 
 

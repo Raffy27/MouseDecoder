@@ -24,7 +24,6 @@ use iEEE.numeric_std.all;
 
 entity SSGDisplay is
     Port(
-        Reset:      in STD_LOGIC;
         Clock:      in STD_LOGIC;
         Number:     in STD_LOGIC_VECTOR (15 downto 0);
         Segments:   out STD_LOGIC_VECTOR(6 downto 0);
@@ -91,11 +90,9 @@ begin
         end case;
     end process;
 
-    process(Clock, Reset)
+    process(Clock)
     begin 
-        if Reset='1' then
-            Refresh <= (others => '0');
-        elsif rising_edge(Clock) then
+        if rising_edge(Clock) then
             Refresh <= Refresh + 1;
         end if;
     end process;
