@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Thu Mar 24 12:35:15 2022
+| Date         : Sun Mar 27 22:01:43 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt
 | Design       : CommandUnit
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     3 |
-|    Minimum number of control sets                        |     3 |
+| Total control sets                                       |     5 |
+|    Minimum number of control sets                        |     5 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
 | Unused register locations in slices containing registers |     6 |
@@ -39,7 +39,7 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     3 |
+| Total control sets |     5 |
 | >= 0 to < 4        |     0 |
 | >= 4 to < 6        |     0 |
 | >= 6 to < 8        |     1 |
@@ -47,7 +47,7 @@ Table of Contents
 | >= 10 to < 12      |     0 |
 | >= 12 to < 14      |     0 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     2 |
+| >= 16              |     4 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -59,9 +59,9 @@ Table of Contents
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | No           | No                    | No                     |              20 |            5 |
-| No           | No                    | Yes                    |               6 |            2 |
+| No           | No                    | Yes                    |              38 |           10 |
 | No           | Yes                   | No                     |               0 |            0 |
-| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | No                     |              16 |            2 |
 | Yes          | No                    | Yes                    |              16 |            4 |
 | Yes          | Yes                   | No                     |               0 |            0 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -73,9 +73,11 @@ Table of Contents
 +-----------------------+-------------------+------------------+------------------+----------------+
 |      Clock Signal     |   Enable Signal   | Set/Reset Signal | Slice Load Count | Bel Load Count |
 +-----------------------+-------------------+------------------+------------------+----------------+
-|  MouseClock_IBUF_BUFG |                   | Reset_IBUF       |                2 |              6 |
+|  MouseClock_IBUF_BUFG |                   | Reset_IBUF       |                4 |              6 |
+| ~MouseClock_IBUF_BUFG | Debug0            |                  |                2 |             16 |
 | ~MouseClock_IBUF_BUFG | Number[0]_i_1_n_0 | Reset_IBUF       |                4 |             16 |
 |  Clock_IBUF_BUFG      |                   |                  |                5 |             20 |
+| ~MouseClock_IBUF_BUFG |                   | Reset_IBUF       |                6 |             32 |
 +-----------------------+-------------------+------------------+------------------+----------------+
 
 
