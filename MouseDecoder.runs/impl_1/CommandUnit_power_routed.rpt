@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Sun Mar 27 22:02:15 2022
+| Date             : Sun Mar 27 23:14:45 2022
 | Host             : Popsicle running 64-bit Zorin OS 16.1
 | Command          : report_power -file CommandUnit_power_routed.rpt -pb CommandUnit_power_summary_routed.pb -rpx CommandUnit_power_routed.rpx
 | Design           : CommandUnit
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 16.730       |
+| Total On-Chip Power (W)  | 16.710       |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 16.510       |
-| Device Static (W)        | 0.221        |
+| Dynamic (W)              | 16.490       |
+| Device Static (W)        | 0.220        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 16.4         |
-| Junction Temperature (C) | 108.6        |
+| Max Ambient (C)          | 16.5         |
+| Junction Temperature (C) | 108.5        |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.873 |      258 |       --- |             --- |
-|   LUT as Logic |     0.801 |      113 |     20800 |            0.54 |
+| Slice Logic    |     0.861 |      258 |       --- |             --- |
+|   LUT as Logic |     0.790 |      114 |     20800 |            0.55 |
 |   CARRY4       |     0.042 |       11 |      8150 |            0.13 |
-|   Register     |     0.020 |       90 |     41600 |            0.22 |
+|   Register     |     0.019 |       90 |     41600 |            0.22 |
 |   BUFG         |     0.010 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |        4 |       --- |             --- |
-| Signals        |     0.796 |      203 |       --- |             --- |
-| I/O            |    14.841 |       32 |       106 |           30.19 |
-| Static Power   |     0.221 |          |           |                 |
-| Total          |    16.730 |          |           |                 |
+| Signals        |     0.740 |      203 |       --- |             --- |
+| I/O            |    14.889 |       32 |       106 |           30.19 |
+| Static Power   |     0.220 |          |           |                 |
+| Total          |    16.710 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     1.902 |       1.773 |      0.129 |
-| Vccaux    |       1.800 |     0.576 |       0.543 |      0.033 |
-| Vcco33    |       3.300 |     4.197 |       4.196 |      0.001 |
+| Vccint    |       0.950 |     1.830 |       1.701 |      0.129 |
+| Vccaux    |       1.800 |     0.578 |       0.545 |      0.033 |
+| Vcco33    |       3.300 |     4.211 |       4.210 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,8 +138,8 @@ Table of Contents
 +------------------+-----------+
 | Name             | Power (W) |
 +------------------+-----------+
-| CommandUnit      |    16.510 |
-|   Display_Number |     0.597 |
+| CommandUnit      |    16.490 |
+|   Display_Number |     0.613 |
 +------------------+-----------+
 
 

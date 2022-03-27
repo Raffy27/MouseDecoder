@@ -77,7 +77,7 @@ begin
         if Reset = '1' then
             MouseBits  <= (others => '0');
         elsif rising_edge(MouseClock) then
-            if MouseBits <= 31 then
+            if MouseBits <= 42 then
                 MouseBits <= MouseBits + 1;
             else
                 MouseBits <= (others => '0');
