@@ -59,7 +59,7 @@ end component;
 signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 -- Counter for the number of data bits sent by the mouse
 signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
-signal MouseReg:    STD_LOGIC_VECTOR(31 downto 0) := (others => '0');
+signal MouseReg:    STD_LOGIC_VECTOR(42 downto 0) := (others => '0');
 
 begin
 --    Show_Debug_Info: process(DebugSwitch, MouseReg)
@@ -92,7 +92,7 @@ begin
             MouseReg <= (others => '0');
         elsif falling_edge(MouseClock) then
             -- TODO: New condition for left/right mode
-            MouseReg <= MouseReg(30 downto 0) & MouseData;
+            MouseReg <= MouseReg(41 downto 0) & MouseData;
             if MouseBits = 1 then
                 if MouseData = '1' then
                     Number <= Number + 1;
