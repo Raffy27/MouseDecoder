@@ -1,0 +1,39 @@
+digraph {
+	node [shape=rectangle];
+	splines=ortho;
+
+	inputs [width=5]
+
+	cu [width=3 height=3 label="CU"];
+	ssg [label="7 Segment Display" height=2];
+	b2b [label="Bin to BCD" height=2];
+    
+	mdec [label="Mouse Decoder" height=2.5 width=2];
+	mtypes [label="Mouse Types Unit" shape=folder height=0.7]
+
+	{ rank = same; cu; ssg; }
+
+	inputs -> cu [xlabel="Clock"];
+	inputs -> cu [xlabel="Reset"];
+	inputs -> cu [xlabel="Sense"];
+	cu -> ssg [xlabel="Clock" minlen=8];
+	cu -> ssg [xlabel="Reset"];
+	cu -> ssg [xlabel="Number"];
+	
+	ssg -> b2b [xlabel="Number"];
+	b2b -> ssg [xlabel="BCD"];
+	
+	inputs -> mdec [xlabel="MouseClock"];
+	inputs -> mdec [xlabel="MouseData"];
+	mdec -> cu [xlabel="MouseMessage"];
+	mdec -> cu [xlabel="NewMessage"];
+	
+	mdec -> mtypes [xlabel="MouseReg"];
+	mtypes -> mdec [xlabel="MouseMessage"];
+
+	ssg -> outputs [xlabel="Anodes"]
+	ssg -> outputs [xlabel="Cathodes"]
+	cu -> outputs [xlabel="InvLED"]
+
+	outputs [width=3]		
+}

@@ -1,0 +1,32 @@
+digraph {
+	node [shape=box]
+	splines=ortho
+
+	inputs [width=7]
+
+	counter [label="Counter mod 42" shape=box height=1.5]
+	inputs -> mcdiv [headlabel="MouseClock " arrowhead=none]
+	mcdiv [shape=point style=invis]
+	mcdiv -> { counter reg0 }
+
+	subgraph cluster_reg {
+		label="MouseReg"
+		node[shape=box]
+		{
+			rank=same
+			reg0 [label="D₀"]
+			reg1 [label="D₁"]
+			reg0 -> reg1  -> regdot -> regn
+			regdot [label="..."]
+			regn [label="D₄₁"]
+		}
+	}
+
+	inputs -> reg0 [xlabel="MouseData"]
+	counter -> outputs [taillabel="TC" headlabel="NewMessage " minlen=3]
+	regn -> mtypes
+	mtypes -> outputs [xlabel="MouseMessage"]
+
+	mtypes [label="Mouse Types" shape=folder]
+	outputs [width=4.3]
+}
