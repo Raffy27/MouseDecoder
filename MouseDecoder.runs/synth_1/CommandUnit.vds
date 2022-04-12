@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue Apr 12 14:36:24 2022
-# Process ID: 32032
+# Start of session at: Tue Apr 12 17:38:24 2022
+# Process ID: 69210
 # Current directory: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1
 # Command line: vivado -log CommandUnit.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CommandUnit.tcl
 # Log file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CommandUnit.vds
@@ -16,18 +16,22 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 32086 
+INFO: Helper process launched with PID 69301 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1636.848 ; gain = 154.688 ; free physical = 1298 ; free virtual = 7132
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:06 . Memory (MB): peak = 1636.906 ; gain = 154.719 ; free physical = 769 ; free virtual = 5171
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'CommandUnit' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:48]
 INFO: [Synth 8-3491] module 'SSGDisplay' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:25' bound to instance 'Display_Number' of component 'SSGDisplay' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:114]
 INFO: [Synth 8-638] synthesizing module 'SSGDisplay' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:34]
-WARNING: [Synth 8-614] signal 'Number' is read in the process but is not in the sensitivity list [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:103]
-INFO: [Synth 8-256] done synthesizing module 'SSGDisplay' (1#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:34]
-INFO: [Synth 8-256] done synthesizing module 'CommandUnit' (2#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:48]
+INFO: [Synth 8-3491] module 'Bcd2Bin' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bcd2Bin.vhd:36' bound to instance 'Binary_To_BCD' of component 'Bcd2Bin' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:108]
+INFO: [Synth 8-638] synthesizing module 'Bcd2Bin' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bcd2Bin.vhd:46]
+WARNING: [Synth 8-614] signal 'rReady' is read in the process but is not in the sensitivity list [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bcd2Bin.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'Bcd2Bin' (1#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bcd2Bin.vhd:46]
+WARNING: [Synth 8-614] signal 'BCD' is read in the process but is not in the sensitivity list [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:126]
+INFO: [Synth 8-256] done synthesizing module 'SSGDisplay' (2#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:34]
+INFO: [Synth 8-256] done synthesizing module 'CommandUnit' (3#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:48]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1690.598 ; gain = 208.438 ; free physical = 1318 ; free virtual = 7154
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1690.656 ; gain = 208.469 ; free physical = 794 ; free virtual = 5196
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -40,10 +44,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.566 ; gain = 211.406 ; free physical = 1317 ; free virtual = 7153
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.625 ; gain = 211.438 ; free physical = 791 ; free virtual = 5192
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.566 ; gain = 211.406 ; free physical = 1317 ; free virtual = 7153
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.625 ; gain = 211.438 ; free physical = 791 ; free virtual = 5192
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -55,30 +59,32 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/CommandUnit_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.285 ; gain = 0.000 ; free physical = 1213 ; free virtual = 7064
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.344 ; gain = 0.000 ; free physical = 705 ; free virtual = 5108
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.285 ; gain = 0.000 ; free physical = 1213 ; free virtual = 7065
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.344 ; gain = 0.000 ; free physical = 705 ; free virtual = 5108
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1866.285 ; gain = 384.125 ; free physical = 1229 ; free virtual = 7090
+Finished Constraint Validation : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 763 ; free virtual = 5164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticpg236-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1866.285 ; gain = 384.125 ; free physical = 1229 ; free virtual = 7090
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 763 ; free virtual = 5164
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1866.285 ; gain = 384.125 ; free physical = 1229 ; free virtual = 7090
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 763 ; free virtual = 5163
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:96]
+WARNING: [Synth 8-327] inferring latch for variable 'Digit_reg' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:133]
+WARNING: [Synth 8-327] inferring latch for variable 'Anodes_reg' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:132]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1866.285 ; gain = 384.125 ; free physical = 1219 ; free virtual = 7081
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:17 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 755 ; free virtual = 5156
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -91,20 +97,22 @@ Start RTL Component Statistics
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
+	   2 Input     11 Bit       Adders := 1     
 	   2 Input      6 Bit       Adders := 1     
-	   2 Input      4 Bit       Adders := 56    
-	   2 Input      3 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 4     
 +---Registers : 
 	               43 Bit    Registers := 1     
-	               16 Bit    Registers := 1     
+	               16 Bit    Registers := 4     
+	               11 Bit    Registers := 1     
 	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     16 Bit        Muxes := 1     
-	   2 Input     15 Bit        Muxes := 15    
+	   2 Input     16 Bit        Muxes := 3     
+	   2 Input     15 Bit        Muxes := 2     
 	   2 Input      6 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 42    
+	   2 Input      4 Bit        Muxes := 3     
 	   4 Input      4 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -124,14 +132,23 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
-Module SSGDisplay 
+Module Bcd2Bin 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      4 Bit       Adders := 56    
-	   2 Input      3 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 4     
++---Registers : 
+	               16 Bit    Registers := 3     
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   2 Input     15 Bit        Muxes := 15    
-	   2 Input      4 Bit        Muxes := 42    
+	   2 Input     16 Bit        Muxes := 2     
+	   2 Input     15 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+Module SSGDisplay 
+Detailed RTL Component Info : 
++---Muxes : 
 	   4 Input      4 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -149,8 +166,39 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/rReady_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[2]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[3]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[4]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[5]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[6]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[7]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[8]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[9]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[10]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[11]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[12]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[13]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[14]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
+INFO: [Synth 8-3886] merging instance 'Display_Number/Binary_To_BCD/vNumber_reg[15]' (FDE) to 'Display_Number/Binary_To_BCD/vNumber_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Display_Number/Binary_To_BCD/vNumber_reg[1] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:51 ; elapsed = 00:00:55 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1231 ; free virtual = 7083
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:18 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 740 ; free virtual = 5146
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -162,13 +210,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:05 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1082 ; free virtual = 6946
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 637 ; free virtual = 5043
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:00 ; elapsed = 00:01:05 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1081 ; free virtual = 6945
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 637 ; free virtual = 5043
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -180,7 +228,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1081 ; free virtual = 6946
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 636 ; free virtual = 5042
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -204,7 +252,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished IO Insertion : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -217,7 +265,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -229,25 +277,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 634 ; free virtual = 5039
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -264,48 +312,51 @@ Report Cell Usage:
 |      |Cell   |Count |
 +------+-------+------+
 |1     |BUFG   |     2|
-|2     |CARRY4 |    11|
-|3     |LUT1   |     1|
-|4     |LUT2   |    40|
-|5     |LUT3   |    19|
-|6     |LUT4   |    19|
-|7     |LUT5   |    17|
-|8     |LUT6   |    55|
-|9     |FDCE   |    54|
-|10    |FDRE   |    36|
-|11    |IBUF   |     5|
-|12    |OBUF   |    27|
+|2     |CARRY4 |     5|
+|3     |LUT1   |     2|
+|4     |LUT2   |     7|
+|5     |LUT3   |    23|
+|6     |LUT4   |    21|
+|7     |LUT5   |     4|
+|8     |LUT6   |    15|
+|9     |FDCE   |    38|
+|10    |FDRE   |    80|
+|11    |LD     |     8|
+|12    |IBUF   |     5|
+|13    |OBUF   |    27|
 +------+-------+------+
 
 Report Instance Areas: 
-+------+-----------------+-----------+------+
-|      |Instance         |Module     |Cells |
-+------+-----------------+-----------+------+
-|1     |top              |           |   286|
-|2     |  Display_Number |SSGDisplay |    53|
-+------+-----------------+-----------+------+
++------+------------------+-----------+------+
+|      |Instance          |Module     |Cells |
++------+------------------+-----------+------+
+|1     |top               |           |   237|
+|2     |  Display_Number  |SSGDisplay |   125|
+|3     |    Binary_To_BCD |Bcd2Bin    |    80|
++------+------------------+-----------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.285 ; gain = 390.125 ; free physical = 1093 ; free virtual = 6970
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 635 ; free virtual = 5041
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:01 ; elapsed = 00:01:05 . Memory (MB): peak = 1872.285 ; gain = 217.406 ; free physical = 1143 ; free virtual = 7019
-Synthesis Optimization Complete : Time (s): cpu = 00:01:03 ; elapsed = 00:01:08 . Memory (MB): peak = 1872.293 ; gain = 390.125 ; free physical = 1143 ; free virtual = 7019
+Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:23 ; elapsed = 00:00:27 . Memory (MB): peak = 1866.344 ; gain = 211.438 ; free physical = 684 ; free virtual = 5089
+Synthesis Optimization Complete : Time (s): cpu = 00:00:25 ; elapsed = 00:00:29 . Memory (MB): peak = 1866.344 ; gain = 384.156 ; free physical = 683 ; free virtual = 5089
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 11 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1904.301 ; gain = 0.000 ; free physical = 1113 ; free virtual = 6968
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.344 ; gain = 0.000 ; free physical = 640 ; free virtual = 5044
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 8 instances were transformed.
+  LD => LDCE: 8 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-18 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+52 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:10 ; elapsed = 00:01:15 . Memory (MB): peak = 1904.301 ; gain = 538.484 ; free physical = 1210 ; free virtual = 7066
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1904.301 ; gain = 0.000 ; free physical = 1210 ; free virtual = 7066
+synth_design: Time (s): cpu = 00:00:32 ; elapsed = 00:00:36 . Memory (MB): peak = 1866.344 ; gain = 503.500 ; free physical = 736 ; free virtual = 5140
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.344 ; gain = 0.000 ; free physical = 736 ; free virtual = 5141
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CommandUnit.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file CommandUnit_utilization_synth.rpt -pb CommandUnit_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Tue Apr 12 14:37:49 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue Apr 12 17:39:10 2022...

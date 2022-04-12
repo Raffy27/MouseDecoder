@@ -39,6 +39,19 @@ signal Refresh: STD_LOGIC_VECTOR(19 downto 0);
 -- 2 bits for the 4 to 1 MUX
 signal NextAnode: STD_LOGIC_VECTOR(1 downto 0);
 
+component Bcd2Bin is
+    Port(
+        Number: in  STD_LOGIC_VECTOR (15 downto 0);
+        Clock : in  STD_LOGIC;
+        Enable:  in  STD_LOGIC;
+        BCD:    out STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
+        Ready:  out STD_LOGIC := '0'
+    );
+end component Bcd2Bin;
+
+signal EnableB2B:   STD_LOGIC;
+signal BCDReady:    STD_LOGIC;
+signal BCD:         STD_LOGIC_VECTOR(15 downto 0);
 -- Logic for converting the binary input to BCD
 -- TODO: Refactor this into a separate component (solve weird combinational loop error)
 function BinToBCD(Bin: STD_LOGIC_VECTOR(15 downto 0)) return STD_LOGIC_VECTOR is
@@ -73,7 +86,7 @@ begin
 end BinToBCD;
 
 begin
-    process(Digit)
+    Segment_Pattern: process(Digit)
     begin
         case Digit is
             when "0000" => Segments <= "0000001"; -- 0    
@@ -89,8 +102,18 @@ begin
             when others => Segments <= "0000001"; -- 0
         end case;
     end process;
+    
+    EnableB2B <= '1';
+    
+    Binary_To_BCD: Bcd2Bin port map(
+        Number => Number, 
+        Clock => Clock,
+        Enable => EnableB2B,
+        BCD => BCD, 
+        Ready => BCDReady
+    );
 
-    process(Clock)
+    Refresh_Interval: process(Clock)
     begin 
         if rising_edge(Clock) then
             Refresh <= Refresh + 1;
@@ -98,26 +121,27 @@ begin
     end process;
     
     -- Select the next anode pattern
-    NextAnode <= Refresh(19 downto 18);
+    Anode_Mux: NextAnode <= Refresh(19 downto 18);
     
-    process(NextAnode)
-    variable Parsed: STD_LOGIC_VECTOR(15 downto 0);
+    Digit_Selection: process(NextAnode, BCDReady)
     begin
-        Parsed := BinToBCD(Number);
-        case NextAnode is
-            when "00" =>    -- First digit
-                Anodes <= "0111";
-                Digit <= Parsed(15 downto 12);
-            when "01" =>    -- Second digit
-                Anodes <= "1011";
-                Digit <= Parsed(11 downto 8);
-            when "10" =>    -- Third digit
-                Anodes <= "1101";
-                Digit <= Parsed(7 downto 4);
-            when "11" =>    -- Fourth digit
-                Anodes <= "1110"; 
-                Digit <= Parsed(3 downto 0);  
-            end case;
+        if BCDReady = '1' then
+            -- Select the actual digit to show
+            case NextAnode is
+                when "00" =>    -- First digit
+                    Anodes <= "0111";
+                    Digit <= BCD(15 downto 12);
+                when "01" =>    -- Second digit
+                    Anodes <= "1011";
+                    Digit <= BCD(11 downto 8);
+                when "10" =>    -- Third digit
+                    Anodes <= "1101";
+                    Digit <= BCD(7 downto 4);
+                when "11" =>    -- Fourth digit
+                    Anodes <= "1110"; 
+                    Digit <= BCD(3 downto 0);  
+                end case;
+        end if;
     end process;
 
 end Behavioral;

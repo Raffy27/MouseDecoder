@@ -44,21 +44,27 @@ entity Bcd2Bin is
 end Bcd2Bin;
 
 architecture Behavioral of Bcd2Bin is
-signal State:   STD_LOGIC_VECTOR(4 downto 0) := (others => '0');
+signal State:   STD_LOGIC_VECTOR(10 downto 0) := (others => '0');
+signal vNum:	STD_LOGIC_VECTOR(15 downto 0);
+signal vBxd:	STD_LOGIC_VECTOR(15 downto 0);
+signal rReady:  STD_LOGIC;
 begin
     Shift_And_Add: process(Enable, Clock, Number)
     variable vNumber: STD_LOGIC_VECTOR(15 downto 0);
     variable vBCD:    STD_LOGIC_VECTOR(15 downto 0);
     begin
-        if rising_edge(Enable) then
+        if Enable = '0' then
+            State <= (others => '0');
+            Ready <= '1';
+            rReady <= '1';
+        elsif rReady = '1' then
             -- Component was just enabled, copy input for internal operations
             vNumber := Number;
             vBCD := (others => '0');
-        elsif Enable = '0' then
-            State <= (others => '0');
             Ready <= '0';
-            BCD <= (others => '0');
-        elsif rising_edge(Clock) then
+            rReady <= '0';
+        end if;
+        if Enable = '1' and rising_edge(Clock) then
             -- Valid input data: shift and add 3
             vBCD := vBCD(14 downto 0) & vNumber(15);
             vNumber := vNumber(14 downto 0) & '0';
@@ -76,12 +82,16 @@ begin
             end if;
             -- Increment State
             State <= State + 1;
-        elsif falling_edge(Clock) then
+        end if;
+        if Enable = '1' and falling_edge(Clock) then
             -- Prepare result
             if State = 16 then
                 BCD <= vBCD;
                 Ready <= '1';
+                rReady <= '0';
             end if;
         end if;
+        vNum <= vNumber;
+        vBxd <= vBCD;
     end process;
 end Behavioral;
