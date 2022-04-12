@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Tue Apr 12 17:40:20 2022
+| Date         : Tue Apr 12 23:48:08 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_drc -file CommandUnit_drc_routed.rpt -pb CommandUnit_drc_routed.pb -rpx CommandUnit_drc_routed.rpx
 | Design       : CommandUnit
@@ -24,11 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 1
+             Violations found: 7
 +----------+----------+-----------------------------------------------------+------------+
 | Rule     | Severity | Description                                         | Violations |
 +----------+----------+-----------------------------------------------------+------------+
 | CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
+| PDRC-153 | Warning  | Gated clock check                                   | 6          |
 +----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
@@ -44,6 +45,36 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/BCD_reg[15]_i_1_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/BCD_reg[15]_i_1/O, cell Display_Number/Binary_To_BCD/BCD_reg[15]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#2 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/State_reg[1]_i_2_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/State_reg[1]_i_2/O, cell Display_Number/Binary_To_BCD/State_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#3 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/vBuff_reg[19]_i_2_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/vBuff_reg[19]_i_2/O, cell Display_Number/Binary_To_BCD/vBuff_reg[19]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#4 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/vBuff_reg[23]_i_2_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/vBuff_reg[23]_i_2/O, cell Display_Number/Binary_To_BCD/vBuff_reg[23]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#5 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/vBuff_reg[27]_i_2_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/vBuff_reg[27]_i_2/O, cell Display_Number/Binary_To_BCD/vBuff_reg[27]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PDRC-153#6 Warning
+Gated clock check  
+Net Display_Number/Binary_To_BCD/vBuff_reg[31]_i_2_n_0 is a gated clock net sourced by a combinational pin Display_Number/Binary_To_BCD/vBuff_reg[31]_i_2/O, cell Display_Number/Binary_To_BCD/vBuff_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 Related violations: <none>
 
 

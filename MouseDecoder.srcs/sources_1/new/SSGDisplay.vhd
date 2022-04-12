@@ -39,51 +39,17 @@ signal Refresh: STD_LOGIC_VECTOR(19 downto 0);
 -- 2 bits for the 4 to 1 MUX
 signal NextAnode: STD_LOGIC_VECTOR(1 downto 0);
 
-component Bcd2Bin is
+component Bin2Bcd is
     Port(
-        Number: in  STD_LOGIC_VECTOR (15 downto 0);
-        Clock : in  STD_LOGIC;
-        Enable:  in  STD_LOGIC;
-        BCD:    out STD_LOGIC_VECTOR (15 downto 0) := (others => '0');
-        Ready:  out STD_LOGIC := '0'
+        Clock:  in  STD_LOGIC;
+        Reset:  in  STD_LOGIC;
+        Number: in  STD_LOGIC_VECTOR(15 downto 0);
+        BCD:    out STD_LOGIC_VECTOR(15 downto 0)
     );
-end component Bcd2Bin;
+end component Bin2Bcd;
 
-signal EnableB2B:   STD_LOGIC;
-signal BCDReady:    STD_LOGIC;
+signal ResetB2B:    STD_LOGIC;
 signal BCD:         STD_LOGIC_VECTOR(15 downto 0);
--- Logic for converting the binary input to BCD
--- TODO: Refactor this into a separate component (solve weird combinational loop error)
-function BinToBCD(Bin: STD_LOGIC_VECTOR(15 downto 0)) return STD_LOGIC_VECTOR is
-variable BCD:   STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-variable Temp:  STD_LOGIC_VECTOR(15 downto 0) := Bin;
-begin
-    for I in 0 to 15 loop
-        -- Shift left
-        BCD(15 downto 1) := BCD(14 downto 0);
-        BCD(0) := Temp(15);
-        Temp(15 downto 1) := Temp(14 downto 0);
-        Temp(0) := '0';
-        
-        -- Conditionally add 3
-        if I < 15 then
-            if BCD(3 downto 0) > 4 then
-                BCD(3 downto 0) := BCD(3 downto 0) + 3;
-            end if;
-            if BCD(7 downto 4) > 4 then
-                BCD(7 downto 4) := BCD(7 downto 4) + 3;
-            end if;
-            if BCD(11 downto 8) > 4 then
-                BCD(11 downto 8) := BCD(11 downto 8) + 3;
-            end if;
-            if BCD(15 downto 12) > 4 then
-                BCD(15 downto 12) := BCD(15 downto 12) + 3;
-            end if;
-        end if;
-    end loop;
-
-    return BCD;
-end BinToBCD;
 
 begin
     Segment_Pattern: process(Digit)
@@ -102,16 +68,6 @@ begin
             when others => Segments <= "0000001"; -- 0
         end case;
     end process;
-    
-    EnableB2B <= '1';
-    
-    Binary_To_BCD: Bcd2Bin port map(
-        Number => Number, 
-        Clock => Clock,
-        Enable => EnableB2B,
-        BCD => BCD, 
-        Ready => BCDReady
-    );
 
     Refresh_Interval: process(Clock)
     begin 
@@ -123,25 +79,32 @@ begin
     -- Select the next anode pattern
     Anode_Mux: NextAnode <= Refresh(19 downto 18);
     
-    Digit_Selection: process(NextAnode, BCDReady)
+    ResetB2B <= '0';
+    
+    Binary_To_BCD: Bin2Bcd port map(
+        Number => Number, 
+        Clock => Clock,
+        Reset => ResetB2B,
+        BCD => BCD
+    );
+    
+    Digit_Selection: process(NextAnode, BCD)
     begin
-        if BCDReady = '1' then
-            -- Select the actual digit to show
-            case NextAnode is
-                when "00" =>    -- First digit
-                    Anodes <= "0111";
-                    Digit <= BCD(15 downto 12);
-                when "01" =>    -- Second digit
-                    Anodes <= "1011";
-                    Digit <= BCD(11 downto 8);
-                when "10" =>    -- Third digit
-                    Anodes <= "1101";
-                    Digit <= BCD(7 downto 4);
-                when "11" =>    -- Fourth digit
-                    Anodes <= "1110"; 
-                    Digit <= BCD(3 downto 0);  
-                end case;
-        end if;
+        -- Select the actual digit to show
+        case NextAnode is
+            when "00" =>    -- First digit
+                Anodes <= "0111";
+                Digit <= BCD(15 downto 12);
+            when "01" =>    -- Second digit
+                Anodes <= "1011";
+                Digit <= BCD(11 downto 8);
+            when "10" =>    -- Third digit
+                Anodes <= "1101";
+                Digit <= BCD(7 downto 4);
+            when "11" =>    -- Fourth digit
+                Anodes <= "1110"; 
+                Digit <= BCD(3 downto 0);  
+            end case;
     end process;
 
 end Behavioral;
