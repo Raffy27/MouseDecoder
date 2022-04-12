@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Tue Apr  5 13:58:45 2022
+| Date         : Tue Apr 12 14:39:06 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_timing_summary -max_paths 10 -file CommandUnit_timing_summary_routed.rpt -pb CommandUnit_timing_summary_routed.pb -rpx CommandUnit_timing_summary_routed.rpx -warn_on_violation
 | Design       : CommandUnit

@@ -21,7 +21,9 @@ digraph {
 	cu -> ssg [xlabel="Number"];
 	
 	ssg -> b2b [xlabel="Number"];
+	ssg -> b2b [xlabel="Clock"];
 	b2b -> ssg [xlabel="BCD"];
+	b2b -> ssg [xlabel="BCDReady"];
 	
 	inputs -> mdec [xlabel="MouseClock"];
 	inputs -> mdec [xlabel="MouseData"];

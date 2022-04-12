@@ -1,0 +1,14 @@
+digraph {
+	node [shape=rectangle];
+	splines=ortho;
+
+	inputs [width=5]
+	
+	ssg -> b2b [xlabel="Number"];
+	ssg -> b2b [xlabel="Clock"];
+	b2b -> ssg [xlabel="BCD"];
+	b2b -> ssg [xlabel="Ready"];
+	
+
+	outputs [width=3]		
+}
