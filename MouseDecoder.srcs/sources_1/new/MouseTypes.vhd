@@ -36,23 +36,23 @@ package Mouse_Types is
         Z: STD_LOGIC_VECTOR(3 downto 0);
     end record;
     
-    function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(0 to 41)) return Mouse_Message;
-    function IsMouseDataValid(signal Buf: STD_LOGIC_VECTOR(0 to 41)) return Boolean;
+    function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(0 to 42)) return Mouse_Message;
+    function IsMouseDataValid(signal Buf: STD_LOGIC_VECTOR(0 to 42)) return Boolean;
     
 end package;
 
 package body Mouse_Types is
-    function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(0 to 41)) return Mouse_Message is
+    function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(0 to 42)) return Mouse_Message is
     variable Msg: Mouse_Message;
     begin
-        Msg.LeftClick   := Buf(0);
-        Msg.RightClick  := Buf(1);
-        Msg.MiddleClick := Buf(2);
-        -- Bit #3 is always 1
-        Msg.X(8) := Buf(4);
-        Msg.Y(8) := Buf(5);
-        Msg.OverflowX   := Buf(6);
-        Msg.OverflowY   := Buf(7);
+        Msg.LeftClick   := Buf(42);
+        Msg.RightClick  := Buf(41);
+        Msg.MiddleClick := Buf(40);
+        -- Bit #3 == #39 is always 1
+        Msg.X(8) := Buf(38);
+        Msg.Y(8) := Buf(37);
+        Msg.OverflowX   := Buf(36);
+        Msg.OverflowY   := Buf(35);
         -- Parity, Stop, Start
         
         Msg.X(7 downto 0) := Buf(11 to 18);
@@ -65,7 +65,7 @@ package body Mouse_Types is
         return Msg;
     end function;
     
-    function IsMouseDataValid(signal Buf: STD_LOGIC_VECTOR(0 to 41)) return Boolean is
+    function IsMouseDataValid(signal Buf: STD_LOGIC_VECTOR(0 to 42)) return Boolean is
     begin
         -- TODO
         return true;
