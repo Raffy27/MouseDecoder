@@ -62,21 +62,13 @@ signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
 signal MouseReg:    STD_LOGIC_VECTOR(42 downto 0) := (others => '0');
 
 begin
---    Show_Debug_Info: process(DebugSwitch, MouseReg)
---    begin
---        if DebugSwitch = '0' then
---            Debug <= MouseReg(31 downto 16);
---        else
---            Debug <= MouseReg(15 downto 0);
---        end if;
---    end process;
-
     -- TODO: Extract as component
     process(Reset, MouseClock)
     begin
         if Reset = '1' then
             MouseBits  <= (others => '0');
         elsif rising_edge(MouseClock) then
+            -- Counter modulo 43
             if MouseBits <= 42 then
                 MouseBits <= MouseBits + 1;
             else
@@ -105,7 +97,7 @@ begin
                 if DebugSwitch = '0' then 
                     Debug <= MouseReg(31 downto 16);
                 else
-                    Debug <= MouseReg(15 downto 0);
+                    Debug <= Number;
                 end if;
             end if;
         end if;

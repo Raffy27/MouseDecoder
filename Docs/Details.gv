@@ -1,0 +1,107 @@
+digraph {
+	node [shape=rectangle];
+	splines=ortho;
+
+	inputs [width=5]
+
+	cu [width=3 height=3 label="CU"];
+	ssg [label="7 Segment Display" height=2];
+    
+	subgraph mdec {
+		node [shape=box]
+		splines=ortho
+
+		counter [label="Counter mod 42" shape=box height=1.5]
+		inputs -> mcdiv [headlabel="MouseClock " arrowhead=none]
+		mcdiv [shape=point style=invis]
+		mcdiv -> { counter mreg0 }
+
+		subgraph cluster_reg1 {
+			label="MouseReg"
+			node[shape=box]
+			{
+				rank=same
+				mreg0 [label="D₀"]
+				mreg1 [label="D₁"]
+				mreg0 -> mreg1  -> mregdot -> mregn
+				mregdot [label="..."]
+				mregn [label="D₄₁"]
+			}
+		}
+
+		inputs -> mreg0 [xlabel="MouseData"]
+		counter -> cu [taillabel="TC" headlabel="NewMessage " minlen=3]
+		mregn -> mtypes
+		mtypes -> cu [xlabel="MouseMessage"]
+	}
+	mtypes [label="Mouse Types Unit" shape=folder height=0.7]
+
+	subgraph b2b {
+		node [shape=rectangle];
+		splines=ortho;
+		
+		ssg -> {_reg0 _reg1 _regdot _regn} [xlabel="Num"];
+		ssg -> {_wnode reg0} [xlabel="Clock"];
+		ssg -> {_wnode reg0} [xlabel="Reset"];
+
+		subgraph cluster_statecounter {
+			label="StateCounter"
+			node[shape=box]
+			{
+				rank=same
+				reg0 [label="D₀"]
+				reg1 [label="D₁"]
+				regdot [label="..."]
+				regn [label="D₄"]
+			}
+			wnode [fixedsize=true height=1 shape=point style=invis width=0.01]
+		}
+
+		subgraph cluster_regx {
+			label="InternalReg"
+			node[shape=box]
+			{
+				rank=same
+				_reg0 [label="D₀"]
+				_reg1 [label="D₁"]
+				_regdot [label="..."]
+				_regn [label="D₄"]
+				_reg0 -> _reg1 -> _regdot -> _regn
+			}
+			_wnode [fixedsize=true height=0.3 label="" width=0.3 shape=oval]
+		}
+
+		sel_logic [label="State Selection Logic" width=2 height=1.2]
+		{reg0 reg1 regdot regn} -> sel_logic
+		sel_logic -> _wnode [xlabel="1" headlabel="PL "]
+		sel_logic -> _wnode [xlabel="2" headlabel="MODE"]
+
+		mux [label="MUX [3]" shape=invtrapezium width=4]
+		{_reg0 _reg1 _regdot _regn} -> mux [minlen=3]
+		
+		adder [label="Adder" width=2 height=1]
+		sel_logic -> adder [xlabel="3" headlabel="Enable "]
+		mux:s -> adder
+		sel_logic -> mux:e [xlabel="3"]
+		3 -> adder
+		{rank=same adder 3}
+		adder -> _reg0
+
+		sel_logic -> ssg [xlabel="4 - BCD"]
+	}
+
+	{ rank = same; cu; ssg; }
+
+	inputs -> cu [xlabel="Clock"];
+	inputs -> cu [xlabel="Reset"];
+	inputs -> cu [xlabel="Sense"];
+	cu -> ssg [xlabel="Clock" minlen=8];
+	cu -> ssg [xlabel="Reset"];
+	cu -> ssg [xlabel="Number"];
+	
+	ssg -> outputs [xlabel="Anodes"]
+	ssg -> outputs [xlabel="Cathodes"]
+	cu -> outputs [xlabel="InvLED    " minlen=6]
+
+	outputs [width=3]
+}

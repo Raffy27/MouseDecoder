@@ -79,7 +79,7 @@ begin
     -- Select the next anode pattern
     Anode_Mux: NextAnode <= Refresh(19 downto 18);
     
-    ResetB2B <= '0';
+    ResetB2B <= Refresh(18);
     
     Binary_To_BCD: Bin2Bcd port map(
         Number => Number, 

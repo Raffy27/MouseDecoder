@@ -52,7 +52,7 @@ begin
     begin
         if Reset = '1' then
             State <= Take;
-        else
+        elsif falling_edge(Clock) then
             case State is
                 when Take =>
                     vBuff(15 downto 0) := Number;

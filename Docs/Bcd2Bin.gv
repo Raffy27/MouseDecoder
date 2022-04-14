@@ -4,11 +4,52 @@ digraph {
 
 	inputs [width=5]
 	
-	ssg -> b2b [xlabel="Number"];
-	ssg -> b2b [xlabel="Clock"];
-	b2b -> ssg [xlabel="BCD"];
-	b2b -> ssg [xlabel="Ready"];
-	
+	inputs -> {_reg0 _reg1 _regdot _regn} [xlabel="Num"];
+	inputs -> {_wnode reg0} [xlabel="Clock"];
+	inputs -> {_wnode reg0} [xlabel="Reset"];
 
-	outputs [width=3]		
+	subgraph cluster_statecounter {
+		label="StateCounter"
+		node[shape=box]
+		{
+			rank=same
+			reg0 [label="D₀"]
+			reg1 [label="D₁"]
+			regdot [label="..."]
+			regn [label="D₄"]
+		}
+		wnode [fixedsize=true height=1 shape=point style=invis width=0.01]
+	}
+
+	subgraph cluster_reg {
+		label="InternalReg"
+		node[shape=box]
+		{
+			rank=same
+			_reg0 [label="D₀"]
+			_reg1 [label="D₁"]
+			_regdot [label="..."]
+			_regn [label="D₄"]
+			_reg0 -> _reg1 -> _regdot -> _regn
+		}
+		_wnode [fixedsize=true height=0.3 label="" width=0.3 shape=oval]
+	}
+
+	sel_logic [label="State Selection Logic" width=2 height=1.2]
+	{reg0 reg1 regdot regn} -> sel_logic
+	sel_logic -> _wnode [xlabel="1" headlabel="PL "]
+	sel_logic -> _wnode [xlabel="2" headlabel="MODE"]
+
+	mux [label="MUX [3]" shape=invtrapezium width=3]
+	{_reg0 _reg1 _regdot _regn} -> mux [minlen=3]
+	
+	adder [label="Adder" width=2 height=1]
+	sel_logic -> adder [xlabel="3" headlabel="Enable"]
+	mux -> adder
+	3 -> adder
+	{rank=same adder 3}
+	adder -> _reg0
+
+	sel_logic -> output [xlabel="4"]
+	{rank=same sel_logic output}
 }

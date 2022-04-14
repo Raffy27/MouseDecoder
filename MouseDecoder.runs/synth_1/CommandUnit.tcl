@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_param chipscope.maxJobs 2
 create_project -in_memory -part xc7a35ticpg236-1L
 
 set_param project.singleFileAddWarning.threshold 0
