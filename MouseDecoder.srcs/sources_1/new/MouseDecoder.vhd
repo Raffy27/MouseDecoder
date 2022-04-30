@@ -21,6 +21,7 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use Work.Mouse_Types.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -36,7 +37,7 @@ entity MouseDecoder is
         Reset:          in  STD_LOGIC;
         MouseClock:     in  STD_LOGIC;
         MouseData:      in  STD_LOGIC;
-        MouseMessage:   out STD_LOGIC;
+        MouseMessage:   out Mouse_Message;
         NewMessage:     out STD_LOGIC
     );
 end MouseDecoder;
@@ -66,9 +67,10 @@ begin
         elsif falling_edge(MouseClock) then
             MouseReg <= MouseReg(41 downto 0) & MouseData;
             if MouseBits = 43 then
-                --if IsMouseDataValid() then ...
-                --MouseMessage <= ParseMouseData(MouseReg);
-                NewMessage <= '1';
+                if IsMouseDataValid(MouseReg) then 
+                    MouseMessage <= ParseMouseData(MouseReg);
+                    NewMessage <= '1';
+                end if;
             else
                 NewMessage <= '0';
             end if;

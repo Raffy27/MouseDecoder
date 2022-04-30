@@ -22,6 +22,7 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.std_logic_unsigned.all;
+use work.Mouse_Types.all;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -61,6 +62,9 @@ signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 signal MouseBits:   STD_LOGIC_VECTOR(5 downto 0) := (others => '0');
 signal MouseReg:    STD_LOGIC_VECTOR(42 downto 0) := (others => '0');
 
+signal MT1: Mouse_Message;
+signal MT2: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+
 begin
     -- TODO: Extract as component
     process(Reset, MouseClock)
@@ -93,15 +97,23 @@ begin
                 if MouseData = '1' and Number > 0 then
                     Number <= Number - 1;
                 end if;
-            elsif MouseBits = 32 then
+            elsif MouseBits = 43 then
+                MT1 <= ParseMouseData(MouseReg);
                 if DebugSwitch = '0' then 
-                    Debug <= MouseReg(31 downto 16);
+                    Debug(14 downto 0) <= MouseReg(42 downto 28);
+                    if IsMouseDataValid(MouseReg) then
+                        Debug(15) <= '1';
+                    else
+                        Debug(15) <= '0';
+                    end if;
                 else
-                    Debug <= Number;
+                    Debug <= MouseReg(15 downto 0);
                 end if;
             end if;
         end if;
     end process;
     
-    Display_Number: SSGDisplay port map (Clock, Number, Segments, Anodes);
+    MT2 <= "0000000" & MT1.X;
+    
+    Display_Number: SSGDisplay port map (Clock, MT2, Segments, Anodes);
 end Behavioral;

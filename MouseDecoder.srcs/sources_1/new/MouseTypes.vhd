@@ -33,7 +33,7 @@ package Mouse_Types is
         
         X: STD_LOGIC_VECTOR(8 downto 0);
         Y: STD_LOGIC_VECTOR(8 downto 0);
-        Z: STD_LOGIC_VECTOR(3 downto 0);
+        Z: STD_LOGIC_VECTOR(8 downto 0);
     end record;
     
     function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(42 downto 0)) return Mouse_Message;
@@ -45,28 +45,28 @@ package body Mouse_Types is
     function ParseMouseData(signal Buf: STD_LOGIC_VECTOR(42 downto 0)) return Mouse_Message is
     variable Msg: Mouse_Message;
     begin
-        Msg.LeftClick   := Buf(42);
-        Msg.RightClick  := Buf(41);
-        Msg.MiddleClick := Buf(40);
-        -- Bit #3 <==> #39 is always 1
-        Msg.X(8) := Buf(38);
-        Msg.Y(8) := Buf(37);
-        Msg.OverflowX   := Buf(36);
-        Msg.OverflowY   := Buf(35);
+        Msg.LeftClick   := Buf(41);
+        Msg.RightClick  := Buf(40);
+        Msg.MiddleClick := Buf(39);
+        -- Bit #3 <==> #38 is always 1
+        Msg.X(8) := Buf(37);
+        Msg.Y(8) := Buf(36);
+        Msg.OverflowX   := Buf(35);
+        Msg.OverflowY   := Buf(34);
         -- Parity, Stop, Start
         
-        Msg.X(7 downto 0) := Buf(31 downto 24);
+        Msg.X(7 downto 0) := Buf(30 downto 23);
         -- Parity, Stop, Start
-        Msg.Y(7 downto 0) := Buf(20 to 13);
-        -- Parity, Stop, Start, Sign Extension or Secondary Buttons
-        Msg.Z := Buf(5 to 2);
-        -- Stop bit
+        Msg.Y(7 downto 0) := Buf(19 to 12);
+        -- Parity, Stop, Start
+        Msg.Z := Buf(8 to 1);
+        -- Parity bit
         
         return Msg;
     end function;
     
     function ParityOf(signal Buf: STD_LOGIC_VECTOR) return STD_LOGIC is
-    variable P: STD_LOGIC := '0';
+    variable P: STD_LOGIC := '1';
     begin
         for I in Buf'RANGE loop
             P := P xor Buf(I);
@@ -76,18 +76,19 @@ package body Mouse_Types is
     
     function IsMouseDataValid(signal Buf: STD_LOGIC_VECTOR(42 downto 0)) return Boolean is
     begin
-        if Buf(39) /= '1' then return false; end if;
-        if ParityOf(Buf(42 downto 35)) /= Buf(34) then return false; end if;
-        if Buf(33) /= '1' or Buf(32) /= '0' then return false; end if;
+        if Buf(42) /= '0' then return false; end if;
+    
+        if Buf(38) /= '1' then return false; end if;
+        if ParityOf(Buf(41 downto 34)) /= Buf(33) then return false; end if;
+        if Buf(32) /= '1' or Buf(31) /= '0' then return false; end if;
         
-        if ParityOf(Buf(31 downto 24)) /= Buf(23) then return false; end if;
-        if Buf(22) /= '1' or Buf(21) /= '0' then return false; end if;
+        if ParityOf(Buf(30 downto 23)) /= Buf(22) then return false; end if;
+        if Buf(21) /= '1' or Buf(20) /= '0' then return false; end if;
         
-        if ParityOf(Buf(20 downto 13)) /= Buf(12) then return false; end if;
-        if Buf(11) /= '1' or Buf(10) /= '0' then return false; end if;
+        if ParityOf(Buf(19 downto 12)) /= Buf(11) then return false; end if;
+        if Buf(10) /= '1' or Buf(9) /= '0' then return false; end if;
         
-        if ParityOf(Buf(9 downto 2)) /= Buf(1) then return false; end if;
-        if Buf(0) /= '1' then return false; end if;
+        if ParityOf(Buf(8 downto 1)) /= Buf(0) then return false; end if;
         
         return true;
     end function;
