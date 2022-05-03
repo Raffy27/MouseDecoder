@@ -33,6 +33,7 @@ set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -library xil_defaultlib {
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bin2Bcd.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseTypes.vhd
+  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd
 }

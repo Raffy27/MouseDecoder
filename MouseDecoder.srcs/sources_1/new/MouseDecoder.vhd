@@ -46,7 +46,7 @@ architecture Behavioral of MouseDecoder is
 signal MouseBits:   NATURAL := 0;
 signal MouseReg:    STD_LOGIC_VECTOR(42 downto 0) := (others => '0');
 begin
-    process(Reset, MouseClock)
+    Count_Bits: process(Reset, MouseClock)
     begin
         if Reset = '1' then
             MouseBits  <= 0;
@@ -60,7 +60,7 @@ begin
         end if;
     end process;
     
-    process(Reset, MouseClock)
+    Shift_And_Sync: process(Reset, MouseClock)
     begin
         if Reset = '1' then
             MouseReg <= (others => '0');
@@ -70,6 +70,8 @@ begin
                 if IsMouseDataValid(MouseReg) then 
                     MouseMessage <= ParseMouseData(MouseReg);
                     NewMessage <= '1';
+                else
+                    NewMessage <= '0';
                 end if;
             else
                 NewMessage <= '0';

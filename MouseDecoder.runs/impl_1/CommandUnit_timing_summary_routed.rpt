@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Sat Apr 30 17:37:35 2022
+| Date         : Tue May  3 13:03:31 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_timing_summary -max_paths 10 -file CommandUnit_timing_summary_routed.rpt -pb CommandUnit_timing_summary_routed.pb -rpx CommandUnit_timing_summary_routed.rpx -warn_on_violation
 | Design       : CommandUnit
@@ -55,7 +55,9 @@ Table of Contents
 --------------------
  There are 101 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
 
- There are 74 register/latch pins with no clock driven by root clock pin: MouseClock (HIGH)
+ There are 62 register/latch pins with no clock driven by root clock pin: MouseClock (HIGH)
+
+ There are 18 register/latch pins with no clock driven by root clock pin: Decode_Message/NewMessage_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -70,21 +72,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 371 pins that are not constrained for maximum delay. (HIGH)
+ There are 382 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 3 input ports with no input delay specified. (HIGH)
+ There are 2 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 27 ports with no output delay specified. (HIGH)
+ There are 13 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
