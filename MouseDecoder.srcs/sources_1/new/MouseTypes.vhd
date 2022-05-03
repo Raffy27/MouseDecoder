@@ -57,7 +57,7 @@ package body Mouse_Types is
         
         Msg.X(7 downto 0) := Buf(30 downto 23);
         -- Parity, Stop, Start
-        Msg.Y(7 downto 0) := Buf(19 to 12);
+        Msg.Y(7 downto 0) := Buf(19 downto 12);
         -- Parity, Stop, Start
         Msg.Z := Buf(8 to 1);
         -- Parity bit

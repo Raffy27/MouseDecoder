@@ -71,7 +71,6 @@ signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 
 signal M: Mouse_Message;
 signal NewMessage: STD_LOGIC;
-signal TX: STD_LOGIC_VECTOR(15 downto 0);
 
 begin
         
@@ -125,7 +124,9 @@ begin
         end if;
     end process;
     
-    TX <= "0000000" & M.X;
+    Debug(12) <= '1' when M.X = 0 else '0';
+    Debug(11) <= '1' when M.Y = 0 else '0';
+    Debug(10) <= '1' when M.Z = 0 else '0';
     
     Decode_Message: MouseDecoder port map (
         Reset => Reset,
@@ -135,5 +136,5 @@ begin
         NewMessage => NewMessage
     );
         
-    Display_Number: SSGDisplay port map (Clock, TX, Segments, Anodes);
+    Display_Number: SSGDisplay port map (Clock, Number, Segments, Anodes);
 end Behavioral;
