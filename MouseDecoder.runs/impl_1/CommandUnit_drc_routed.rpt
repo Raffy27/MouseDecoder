@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Mon May  9 22:41:20 2022
+| Date         : Mon May  9 23:25:01 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_drc -file CommandUnit_drc_routed.rpt -pb CommandUnit_drc_routed.pb -rpx CommandUnit_drc_routed.rpx
 | Design       : CommandUnit
@@ -24,12 +24,14 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 1
-+----------+----------+-----------------------------------------------------+------------+
-| Rule     | Severity | Description                                         | Violations |
-+----------+----------+-----------------------------------------------------+------------+
-| CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
-+----------+----------+-----------------------------------------------------+------------+
+             Violations found: 3
++-------------+----------+-------------------------------------------------------------+------------+
+| Rule        | Severity | Description                                                 | Violations |
++-------------+----------+-------------------------------------------------------------+------------+
+| CFGBVS-1    | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
+| PDRC-153    | Warning  | Gated clock check                                           | 1          |
+| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1          |
++-------------+----------+-------------------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -44,6 +46,17 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PDRC-153#1 Warning
+Gated clock check  
+Net Decode_Message/Mega is a gated clock net sourced by a combinational pin Decode_Message/Number[0]_i_3/O, cell Decode_Message/Number[0]_i_3. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT Decode_Message/Number[0]_i_3 is driving clock pin of 16 cells. This could lead to large hold time violations. Involved cells are:
+Number_reg[0], Number_reg[10], Number_reg[11], Number_reg[12], Number_reg[13], Number_reg[14], Number_reg[15], Number_reg[1], Number_reg[2], Number_reg[3], Number_reg[4], Number_reg[5], Number_reg[6], Number_reg[7], Number_reg[8] (the first 15 of 16 listed)
 Related violations: <none>
 
 
