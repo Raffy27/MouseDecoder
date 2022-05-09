@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Mon May  9 23:24:35 2022
+| Date         : Mon May  9 23:41:54 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_drc -file CommandUnit_drc_opted.rpt -pb CommandUnit_drc_opted.pb -rpx CommandUnit_drc_opted.rpx
 | Design       : CommandUnit
@@ -24,13 +24,12 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 2
-+-------------+----------+-------------------------------------------------------------+------------+
-| Rule        | Severity | Description                                                 | Violations |
-+-------------+----------+-------------------------------------------------------------+------------+
-| CFGBVS-1    | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties         | 1          |
-| PLHOLDVIO-2 | Warning  | Non-Optimal connections which could lead to hold violations | 1          |
-+-------------+----------+-------------------------------------------------------------+------------+
+             Violations found: 1
++----------+----------+-----------------------------------------------------+------------+
+| Rule     | Severity | Description                                         | Violations |
++----------+----------+-----------------------------------------------------+------------+
+| CFGBVS-1 | Warning  | Missing CFGBVS and CONFIG_VOLTAGE Design Properties | 1          |
++----------+----------+-----------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
@@ -45,12 +44,6 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-Related violations: <none>
-
-PLHOLDVIO-2#1 Warning
-Non-Optimal connections which could lead to hold violations  
-A LUT Decode_Message/Number[0]_i_3 is driving clock pin of 16 cells. This could lead to large hold time violations. Involved cells are:
-Number_reg[0], Number_reg[10], Number_reg[11], Number_reg[12], Number_reg[13], Number_reg[14], Number_reg[15], Number_reg[1], Number_reg[2], Number_reg[3], Number_reg[4], Number_reg[5], Number_reg[6], Number_reg[7], Number_reg[8] (the first 15 of 16 listed)
 Related violations: <none>
 
 

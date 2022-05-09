@@ -71,54 +71,54 @@ signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
 
 signal M: Mouse_Message;
 signal NewMessage: STD_LOGIC;
---signal x, y: STD_LOGIC := '0';
-signal Mega: STD_LOGIC;
+signal x, y: STD_LOGIC := '0';
+--signal Mega: STD_LOGIC;
 
 begin
 -- This implementation skips some clicks
---    process(Reset, Clock, M, Number)
---    variable temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
---    begin
---        if Reset = '1' then
---            Number <= (others => '0');
---            temp := (others => '0');
---            x <= '0';
---            y <= '0';
---        elsif falling_edge(Clock) then
---            if M.LeftClick = '0' and x = '1' then
---                temp := temp + 1;
---            end if;
---            if M.RightClick = '0' and y = '1' and temp > 0 then
---                temp := temp - 1;
---            end if;
---            Number <= temp;
---        end if;
---        x <= M.LeftClick;
---        y <= M.RightClick;
---    end process;
-
-    Mega <= M.LeftClick or M.RightClick;
-    process(Mega, Number)
+    process(Reset, NewMessage, M, Number)
+    variable temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     begin
-        if falling_edge(Mega) then
-            if M.LeftClick = '0' then
-                Number <= Number + 1;
+        if Reset = '1' then
+            Number <= (others => '0');
+            temp := (others => '0');
+            x <= '0';
+            y <= '0';
+        elsif falling_edge(NewMessage) then --Clock instead
+            if M.LeftClick = '0' and x = '1' then
+                temp := temp + 1;
             end if;
-            if M.RightClick = '0' and Number > 0 then
-                Number <= Number - 1;
+            if M.RightClick = '0' and y = '1' and temp > 0 then
+                temp := temp - 1;
             end if;
+            x <= M.LeftClick;
+            y <= M.RightClick;
+            Number <= temp;
         end if;
     end process;
+
+--    Mega <= M.LeftClick or M.RightClick;
+--    process(Mega, Number)
+--    begin
+--        if falling_edge(Mega) then
+--            if M.LeftClick = '0' then
+--                Number <= Number + 1;
+--            end if;
+--            if M.RightClick = '0' and Number > 0 then
+--                Number <= Number - 1;
+--            end if;
+--        end if;
+--    end process;
     
-    Debugging: process(Clock, DebugSwitch, M)
+    Debugging: process(Clock, DebugSwitch, M, x, y)
     begin
         if falling_edge(Clock) then
             if DebugSwitch = '0' then
                 Debug(15) <= M.LeftClick;
                 Debug(14) <= M.RightClick;
                 
-                --Debug(13) <= x;
-                --Debug(12) <= y;
+                Debug(13) <= x;
+                Debug(12) <= y;
                 
                 if M.X = 0 then
                     Debug(11) <= '1';

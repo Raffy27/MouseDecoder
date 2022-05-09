@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Mon May  9 23:25:04 2022
+| Date         : Mon May  9 23:42:23 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_timing_summary -max_paths 10 -file CommandUnit_timing_summary_routed.rpt -pb CommandUnit_timing_summary_routed.pb -rpx CommandUnit_timing_summary_routed.rpx -warn_on_violation
 | Design       : CommandUnit
@@ -55,11 +55,9 @@ Table of Contents
 --------------------
  There are 117 register/latch pins with no clock driven by root clock pin: Clock (HIGH)
 
- There are 69 register/latch pins with no clock driven by root clock pin: MouseClock (HIGH)
+ There are 70 register/latch pins with no clock driven by root clock pin: MouseClock (HIGH)
 
- There are 16 register/latch pins with no clock driven by root clock pin: Decode_Message/MouseMessage_reg[LeftClick]/Q (HIGH)
-
- There are 16 register/latch pins with no clock driven by root clock pin: Decode_Message/MouseMessage_reg[RightClick]/Q (HIGH)
+ There are 18 register/latch pins with no clock driven by root clock pin: Decode_Message/NewMessage_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -74,7 +72,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 412 pins that are not constrained for maximum delay. (HIGH)
+ There are 422 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
