@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Tue May  3 13:25:13 2022
+| Date             : Mon May  9 22:41:23 2022
 | Host             : Popsicle running 64-bit Zorin OS 16.1
 | Command          : report_power -file CommandUnit_power_routed.rpt -pb CommandUnit_power_summary_routed.pb -rpx CommandUnit_power_routed.rpx
 | Design           : CommandUnit
@@ -30,14 +30,14 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 5.902        |
+| Total On-Chip Power (W)  | 6.163        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 5.825        |
-| Device Static (W)        | 0.077        |
+| Dynamic (W)              | 6.085        |
+| Device Static (W)        | 0.078        |
 | Effective TJA (C/W)      | 5.0          |
-| Max Ambient (C)          | 70.5         |
-| Junction Temperature (C) | 54.5         |
+| Max Ambient (C)          | 69.2         |
+| Junction Temperature (C) | 55.8         |
 | Confidence Level         | Low          |
 | Setting File             | ---          |
 | Simulation Activity File | ---          |
@@ -52,16 +52,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.573 |      304 |       --- |             --- |
-|   LUT as Logic |     0.477 |       78 |     20800 |            0.38 |
-|   Register     |     0.051 |      185 |     41600 |            0.44 |
-|   CARRY4       |     0.035 |       17 |      8150 |            0.21 |
+| Slice Logic    |     0.745 |      325 |       --- |             --- |
+|   LUT as Logic |     0.620 |       93 |     20800 |            0.45 |
+|   Register     |     0.060 |      190 |     41600 |            0.46 |
+|   CARRY4       |     0.054 |       17 |      8150 |            0.21 |
 |   BUFG         |     0.010 |        2 |        32 |            6.25 |
 |   Others       |     0.000 |        7 |       --- |             --- |
-| Signals        |     0.662 |      255 |       --- |             --- |
-| I/O            |     4.590 |       31 |       106 |           29.25 |
-| Static Power   |     0.077 |          |           |                 |
-| Total          |     5.902 |          |           |                 |
+| Signals        |     0.752 |      260 |       --- |             --- |
+| I/O            |     4.588 |       31 |       106 |           29.25 |
+| Static Power   |     0.078 |          |           |                 |
+| Total          |     6.163 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,9 +71,9 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       0.950 |     1.330 |       1.312 |      0.018 |
+| Vccint    |       0.950 |     1.607 |       1.587 |      0.019 |
 | Vccaux    |       1.800 |     0.181 |       0.168 |      0.013 |
-| Vcco33    |       3.300 |     1.297 |       1.296 |      0.001 |
+| Vcco33    |       3.300 |     1.296 |       1.295 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -138,10 +138,10 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| CommandUnit       |     5.825 |
-|   Decode_Message  |     0.273 |
-|   Display_Number  |     0.862 |
-|     Binary_To_BCD |     0.802 |
+| CommandUnit       |     6.085 |
+|   Decode_Message  |     0.328 |
+|   Display_Number  |     0.833 |
+|     Binary_To_BCD |     0.773 |
 +-------------------+-----------+
 
 

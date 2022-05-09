@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------
 | Tool Version      : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date              : Tue May  3 13:25:14 2022
+| Date              : Mon May  9 22:41:23 2022
 | Host              : Popsicle running 64-bit Zorin OS 16.1
 | Command           : report_clock_utilization -file CommandUnit_clock_utilization_routed.rpt
 | Design            : CommandUnit
@@ -18,12 +18,11 @@ Table of Contents
 1. Clock Primitive Utilization
 2. Global Clock Resources
 3. Global Clock Source Details
-4. Local Clock Details
-5. Clock Regions: Key Resource Utilization
-6. Clock Regions : Global Clock Summary
-7. Device Cell Placement Summary for Global Clock g0
-8. Device Cell Placement Summary for Global Clock g1
-9. Clock Region Cell Placement per Global Clock: Region X1Y0
+4. Clock Regions: Key Resource Utilization
+5. Clock Regions : Global Clock Summary
+6. Device Cell Placement Summary for Global Clock g0
+7. Device Cell Placement Summary for Global Clock g1
+8. Clock Region Cell Placement per Global Clock: Region X1Y0
 
 1. Clock Primitive Utilization
 ------------------------------
@@ -47,8 +46,8 @@ Table of Contents
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+-----------------------------+----------------------+
 | Global Id | Source Id | Driver Type/Pin | Constraint | Site           | Clock Region | Load Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                  | Net                  |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+-----------------------------+----------------------+
-| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |         101 |               0 |              |       | Clock_IBUF_BUFG_inst/O      | Clock_IBUF_BUFG      |
-| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 1 |          68 |               0 |              |       | MouseClock_IBUF_BUFG_inst/O | MouseClock_IBUF_BUFG |
+| g0        | src0      | BUFG/O          | None       | BUFGCTRL_X0Y0  | n/a          |                 1 |         119 |               0 |              |       | Clock_IBUF_BUFG_inst/O      | Clock_IBUF_BUFG      |
+| g1        | src1      | BUFG/O          | None       | BUFGCTRL_X0Y16 | n/a          |                 1 |          71 |               0 |              |       | MouseClock_IBUF_BUFG_inst/O | MouseClock_IBUF_BUFG |
 +-----------+-----------+-----------------+------------+----------------+--------------+-------------------+-------------+-----------------+--------------+-------+-----------------------------+----------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
@@ -67,20 +66,7 @@ Table of Contents
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)
 
 
-4. Local Clock Details
-----------------------
-
-+----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------+--------------------------------------------+
-| Local Id | Driver Type/Pin | Constraint | Site/BEL         | Clock Region | Clock Loads | Non-Clock Loads | Clock Period | Clock | Driver Pin                                      | Net                                        |
-+----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------+--------------------------------------------||
-| 0        | FDRE/Q          | None       | SLICE_X62Y43/AFF | X1Y0         |          16 |               0 |              |       | Decode_Message/MouseMessage_reg[LeftClick]__0/Q | Decode_Message/MouseMessage_reg[LeftClick] - Static -
-+----------+-----------------+------------+------------------+--------------+-------------+-----------------+--------------+-------+-------------------------------------------------+--------------------------------------------||
-* Local Clocks in this context represents only clocks driven by non-global buffers
-** Clock Loads column represents the clock pin loads (pin count)
-*** Non-Clock Loads column represents the non-clock pin loads (pin count)
-
-
-5. Clock Regions: Key Resource Utilization
+4. Clock Regions: Key Resource Utilization
 ------------------------------------------
 
 +-------------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
@@ -89,7 +75,7 @@ Table of Contents
 | Clock Region Name | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail | Used | Avail |
 +-------------------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+------+-------+
 | X0Y0              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
-| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  185 |  1500 |   22 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
+| X1Y0              |    2 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |  190 |  1500 |   62 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1200 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
 | X1Y1              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1500 |    0 |   450 |    0 |    40 |    0 |    20 |    0 |    20 |
 | X0Y2              |    0 |    12 |    0 |     4 |    0 |     2 |    0 |     4 |    0 |     1 |    0 |     1 |    0 |     0 |    0 |     0 |    0 |    50 |    0 |    50 |    0 |  1800 |    0 |   400 |    0 |    20 |    0 |    10 |    0 |    20 |
@@ -98,7 +84,7 @@ Table of Contents
 * Global Clock column represents track count; while other columns represents cell counts
 
 
-6. Clock Regions : Global Clock Summary
+5. Clock Regions : Global Clock Summary
 ---------------------------------------
 
 All Modules
@@ -111,13 +97,13 @@ All Modules
 +----+----+----+
 
 
-7. Device Cell Placement Summary for Global Clock g0
+6. Device Cell Placement Summary for Global Clock g0
 ----------------------------------------------------
 
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net             |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
-| g0        | BUFG/O          | n/a               |       |             |               |         101 |        0 |              0 |        0 | Clock_IBUF_BUFG |
+| g0        | BUFG/O          | n/a               |       |             |               |         119 |        0 |              0 |        0 | Clock_IBUF_BUFG |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+-----------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -130,17 +116,17 @@ All Modules
 +----+----+------+
 | Y2 |  0 |    0 |
 | Y1 |  0 |    0 |
-| Y0 |  0 |  101 |
+| Y0 |  0 |  119 |
 +----+----+------+
 
 
-8. Device Cell Placement Summary for Global Clock g1
+7. Device Cell Placement Summary for Global Clock g1
 ----------------------------------------------------
 
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+----------------------+
 | Global Id | Driver Type/Pin | Driver Region (D) | Clock | Period (ns) | Waveform (ns) | Slice Loads | IO Loads | Clocking Loads | GT Loads | Net                  |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+----------------------+
-| g1        | BUFG/O          | n/a               |       |             |               |          68 |        0 |              0 |        0 | MouseClock_IBUF_BUFG |
+| g1        | BUFG/O          | n/a               |       |             |               |          71 |        0 |              0 |        0 | MouseClock_IBUF_BUFG |
 +-----------+-----------------+-------------------+-------+-------------+---------------+-------------+----------+----------------+----------+----------------------+
 * Slice Loads column represents load cell count of all cell types other than IO, GT and clock resources
 ** IO Loads column represents load cell count of IO types
@@ -153,18 +139,18 @@ All Modules
 +----+----+-----+
 | Y2 |  0 |   0 |
 | Y1 |  0 |   0 |
-| Y0 |  0 |  68 |
+| Y0 |  0 |  71 |
 +----+----+-----+
 
 
-9. Clock Region Cell Placement per Global Clock: Region X1Y0
+8. Clock Region Cell Placement per Global Clock: Region X1Y0
 ------------------------------------------------------------
 
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------+
 | Global Id | Track | Driver Type/Pin | Constraint | Clock Loads | Non-Clock Loads | FF  | LUTRAM | RAMB | DSP | GT | MMCM | PLL | Hard IP | Net                  |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------+
-| g0        | n/a   | BUFG/O          | None       |         101 |               0 | 101 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Clock_IBUF_BUFG      |
-| g1        | n/a   | BUFG/O          | None       |          68 |               0 |  68 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MouseClock_IBUF_BUFG |
+| g0        | n/a   | BUFG/O          | None       |         119 |               0 | 119 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | Clock_IBUF_BUFG      |
+| g1        | n/a   | BUFG/O          | None       |          71 |               0 |  71 |      0 |    0 |   0 |  0 |    0 |   0 |       0 | MouseClock_IBUF_BUFG |
 +-----------+-------+-----------------+------------+-------------+-----------------+-----+--------+------+-----+----+------+-----+---------+----------------------+
 * Clock Loads column represents the clock pin loads (pin count)
 ** Non-Clock Loads column represents the non-clock pin loads (pin count)

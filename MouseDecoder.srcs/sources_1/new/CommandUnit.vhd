@@ -73,56 +73,49 @@ signal M: Mouse_Message;
 signal NewMessage: STD_LOGIC;
 
 begin
-        
---    process(Reset, MouseClock, Number, DebugSwitch)
+--    process(NewMessage, Number)
+--    variable LastLeft: STD_LOGIC := '0';
+--    variable LastRight: STD_LOGIC := '0';
 --    begin
---        if Reset = '1' then
---            Number <= (others => '0');
---            MouseReg <= (others => '0');
---        elsif falling_edge(MouseClock) then
---            -- TODO: New condition for left/right mode
---            MouseReg <= MouseReg(41 downto 0) & MouseData;
---            if MouseBits = 1 then
---                if MouseData = '1' then
+--        if rising_edge(NewMessage) then
+--            --if M.X = 0 and M.Y = 0 and M.Z = 0 then
+--                if M.LeftClick = '0' and LastLeft = '1' then
 --                    Number <= Number + 1;
 --                end if;
---            elsif MouseBits = 2 then
---                if MouseData = '1' and Number > 0 then
+--                if M.RightClick = '0' and LastRight = '1' and Number > 0 then
 --                    Number <= Number - 1;
 --                end if;
---            elsif MouseBits = 43 then
---                MT1 <= ParseMouseData(MouseReg);
---                if DebugSwitch = '0' then 
---                    Debug(14 downto 0) <= MouseReg(42 downto 28);
---                    if IsMouseDataValid(MouseReg) then
---                        Debug(15) <= '1';
---                    else
---                        Debug(15) <= '0';
---                    end if;
---                else
---                    Debug <= MouseReg(15 downto 0);
---                end if;
---            end if;
+--                LastLeft := M.LeftClick;
+--                LastRight := M.RightClick;
+--            --end if;
 --        end if;
+--        Debug(15) <= LastLeft;
+--        Debug(14) <= LastRight;
 --    end process;
-
-    process(NewMessage, Number)
+    process(Reset, Clock, M, Number)
+    variable x, y: STD_LOGIC := '0';
+    variable temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     begin
-        if falling_edge(NewMessage) then
-            if M.X = 0 and M.Y = 0 and M.Z = 0 then
-                if M.LeftClick = '1' then
-                    Debug(15) <= '1';
-                    Debug(14) <= '0';
-                    Number <= Number + 1;
-                end if;
-                if M.RightClick = '1' and Number > 0 then
-                    Debug(15) <= '0';
-                    Debug(14) <= '1';
-                    Number <= Number - 1;
-                end if;
+        if Reset = '1' then
+            Number <= (others => '0');
+            temp := (others => '0');
+            x := '0';
+            y := '0';
+        elsif falling_edge(Clock) then
+            if M.LeftClick = '0' and x = '1' then
+                temp := temp + 1;
             end if;
+            if M.RightClick = '0' and y = '1' and temp > 0 then
+                temp := temp - 1;
+            end if;
+            x := M.LeftClick;
+            y := M.RightClick;
+            Number <= temp;
         end if;
     end process;
+    
+    Debug(15) <= M.LeftClick;
+    Debug(14) <= M.RightClick;
     
     Debug(12) <= '1' when M.X = 0 else '0';
     Debug(11) <= '1' when M.Y = 0 else '0';
