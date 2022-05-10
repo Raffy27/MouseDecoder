@@ -76,7 +76,7 @@ signal x, y: STD_LOGIC := '0';
 
 begin
 -- This implementation skips some clicks
-    process(Reset, NewMessage, M, Number)
+    process(Reset, Clock, M, Number)
     variable temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     begin
         if Reset = '1' then
@@ -84,7 +84,7 @@ begin
             temp := (others => '0');
             x <= '0';
             y <= '0';
-        elsif falling_edge(NewMessage) then --Clock instead
+        elsif falling_edge(Clock) then
             if M.LeftClick = '0' and x = '1' then
                 temp := temp + 1;
             end if;
