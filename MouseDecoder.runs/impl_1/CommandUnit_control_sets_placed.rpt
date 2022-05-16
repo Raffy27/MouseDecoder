@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Tue May 10 17:02:49 2022
+| Date         : Mon May 16 22:45:23 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
 | Command      : report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt
 | Design       : CommandUnit
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |    13 |
-|    Minimum number of control sets                        |    13 |
+| Total control sets                                       |    14 |
+|    Minimum number of control sets                        |    14 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    52 |
+| Unused register locations in slices containing registers |    59 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,8 +39,8 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |    13 |
-| >= 0 to < 4        |     1 |
+| Total control sets |    14 |
+| >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     1 |
 | >= 6 to < 8        |     1 |
 | >= 8 to < 10       |     2 |
@@ -58,10 +58,10 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              29 |           10 |
-| No           | No                    | Yes                    |              67 |           18 |
-| No           | Yes                   | No                     |              10 |            5 |
-| Yes          | No                    | No                     |              56 |           12 |
+| No           | No                    | No                     |              31 |           11 |
+| No           | No                    | Yes                    |              67 |           17 |
+| No           | Yes                   | No                     |               9 |            4 |
+| Yes          | No                    | No                     |              56 |           11 |
 | Yes          | No                    | Yes                    |               2 |            1 |
 | Yes          | Yes                   | No                     |              40 |           11 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
@@ -70,22 +70,23 @@ Table of Contents
 4. Detailed Control Set Information
 -----------------------------------
 
-+-----------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
-|      Clock Signal     |                         Enable Signal                        |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
-+-----------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/FSM_sequential_State[1]_i_1_n_0 | Display_Number/NextAnode[0]                    |                1 |              2 |
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/vBuff[31]_i_1_n_0               |                                                |                1 |              4 |
-|  MouseClock_IBUF_BUFG |                                                              | Reset_IBUF                                     |                2 |              6 |
-| ~Clock_IBUF_BUFG      |                                                              |                                                |                5 |              9 |
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/vBuff[24]_i_2_n_0               | Display_Number/Binary_To_BCD/vBuff[24]_i_1_n_0 |                2 |              9 |
-| ~Clock_IBUF_BUFG      |                                                              | Debug[8]_i_1_n_0                               |                5 |             10 |
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/vBuff[15]_i_1_n_0               |                                                |                2 |             16 |
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/BCD0                            |                                                |                5 |             16 |
-| ~Clock_IBUF_BUFG      |                                                              | Reset_IBUF                                     |                5 |             18 |
-|  Clock_IBUF_BUFG      |                                                              |                                                |                5 |             20 |
-| ~MouseClock_IBUF_BUFG | Decode_Message/MouseMessage_reg[LeftClick]0                  |                                                |                4 |             20 |
-| ~Clock_IBUF_BUFG      | Display_Number/Binary_To_BCD/I0                              | Display_Number/Binary_To_BCD/I[30]_i_1_n_0     |                9 |             31 |
-| ~MouseClock_IBUF_BUFG |                                                              | Reset_IBUF                                     |               11 |             43 |
-+-----------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
++----------------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
+|        Clock Signal        |                         Enable Signal                        |                Set/Reset Signal                | Slice Load Count | Bel Load Count |
++----------------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
+|  MouseClock_IBUF_BUFG      |                                                              |                                                |                1 |              1 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/FSM_sequential_State[1]_i_1_n_0 | Display_Number/NextAnode[0]                    |                1 |              2 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/vBuff[31]_i_1_n_0               |                                                |                1 |              4 |
+|  MouseClock_IBUF_BUFG      |                                                              | Reset_IBUF                                     |                2 |              6 |
+| ~Clock_IBUF_BUFG           |                                                              | Debug[7]_i_1_n_0                               |                4 |              9 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/vBuff[24]_i_2_n_0               | Display_Number/Binary_To_BCD/vBuff[24]_i_1_n_0 |                2 |              9 |
+| ~Clock_IBUF_BUFG           |                                                              |                                                |                5 |             10 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/vBuff[15]_i_1_n_0               |                                                |                3 |             16 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/BCD0                            |                                                |                3 |             16 |
+|  Decode_Message/NewMessage |                                                              | Reset_IBUF                                     |                6 |             18 |
+|  Clock_IBUF_BUFG           |                                                              |                                                |                5 |             20 |
+| ~MouseClock_IBUF_BUFG      | Decode_Message/MouseMessage_reg[LeftClick]0                  |                                                |                4 |             20 |
+| ~Clock_IBUF_BUFG           | Display_Number/Binary_To_BCD/I0                              | Display_Number/Binary_To_BCD/I[30]_i_1_n_0     |                9 |             31 |
+| ~MouseClock_IBUF_BUFG      |                                                              | Reset_IBUF                                     |                9 |             43 |
++----------------------------+--------------------------------------------------------------+------------------------------------------------+------------------+----------------+
 
 

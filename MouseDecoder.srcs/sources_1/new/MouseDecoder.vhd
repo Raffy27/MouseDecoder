@@ -57,6 +57,11 @@ begin
             else
                 MouseBits <= 0;
             end if;
+            if MouseBits = 42 then
+                NewMessage <= '1';
+            else
+                NewMessage <= '0';
+            end if;
         end if;
     end process;
     
@@ -69,12 +74,12 @@ begin
             if MouseBits = 43 then
                 if IsMouseDataValid(MouseReg) then 
                     MouseMessage <= ParseMouseData(MouseReg);
-                    NewMessage <= '1';
+                    --NewMessage <= '1';
                 else
-                    NewMessage <= '0';
+                    --NewMessage <= '0';
                 end if;
             else
-                NewMessage <= '0';
+                --NewMessage <= '0';
             end if;
         end if;
     end process;
