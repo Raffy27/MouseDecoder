@@ -45,7 +45,7 @@ set_property PACKAGE_PIN L1 [get_ports {Debug[15]}]
 # Clock signal
 set_property PACKAGE_PIN W5 [get_ports Clock]
         set_property IOSTANDARD LVCMOS33 [get_ports Clock]
-set_property PACKAGE_PIN T2 [get_ports Reset]
+set_property PACKAGE_PIN W19 [get_ports Reset]
         set_property IOSTANDARD LVCMOS33 [get_ports Reset]
 #seven-segment LED display
         set_property PACKAGE_PIN W7 [get_ports {Segments[6]}]

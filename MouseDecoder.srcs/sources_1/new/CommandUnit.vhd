@@ -60,6 +60,7 @@ end component;
 component MouseDecoder is
     Port(
         Reset:          in  STD_LOGIC;
+        Clock:          in  STD_LOGIC;
         MouseClock:     in  STD_LOGIC;
         MouseData:      in  STD_LOGIC;
         MouseMessage:   out Mouse_Message;
@@ -68,57 +69,40 @@ component MouseDecoder is
 end component;
 
 signal Number:      STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
-
 signal M: Mouse_Message;
 signal NewMessage: STD_LOGIC;
-signal x, y: STD_LOGIC := '0';
---signal Mega: STD_LOGIC;
+signal X, Y: STD_LOGIC := '0';
 
 begin
--- This implementation skips some clicks
     process(Reset, NewMessage, M, Number)
-    variable temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
+    variable Temp: STD_LOGIC_VECTOR(15 downto 0);
     begin
         if Reset = '1' then
             Number <= (others => '0');
-            temp := (others => '0');
-            x <= '0';
-            y <= '0';
+            Temp := (others => '0');
+            X <= '0';
+            Y <= '0';
         elsif rising_edge(NewMessage) then
-            if M.LeftClick = '0' and x = '1' then
-                temp := temp + 1;
+            if M.LeftClick = '0' and X = '1' then
+                Temp := Temp + 1;
             end if;
-            if M.RightClick = '0' and y = '1' and temp > 0 then
-                temp := temp - 1;
+            if M.RightClick = '0' and Y = '1' and Temp > 0 then
+                Temp := Temp - 1;
             end if;
-            x <= M.LeftClick;
-            y <= M.RightClick;
-            Number <= temp;
+            X <= M.LeftClick;
+            Y <= M.RightClick;
+            Number <= Temp;
         end if;
     end process;
-
---    Mega <= M.LeftClick or M.RightClick;
---    process(Mega, Number)
---    begin
---        if falling_edge(Mega) then
---            if M.LeftClick = '0' then
---                Number <= Number + 1;
---            end if;
---            if M.RightClick = '0' and Number > 0 then
---                Number <= Number - 1;
---            end if;
---        end if;
---    end process;
     
-    Debugging: process(Clock, DebugSwitch, NewMessage, M, x, y)
+    
+    Debugging: process(Clock, DebugSwitch, NewMessage, M)
     begin
         if falling_edge(Clock) then
             if DebugSwitch = '0' then
                 Debug(15) <= M.LeftClick;
                 Debug(14) <= M.RightClick;
                 
-                Debug(13) <= x;
-                Debug(12) <= y;
                 
                 if M.X = 0 then
                     Debug(11) <= '1';
@@ -135,7 +119,6 @@ begin
                 else
                     Debug(9) <= '0';
                 end if;
-                Debug(8) <= NewMessage;
                 Debug(7 downto 0) <= (others => '0');
             else
                 Debug <= Number;
@@ -145,6 +128,7 @@ begin
     
     Decode_Message: MouseDecoder port map (
         Reset => Reset,
+        Clock => Clock,
         MouseClock => MouseClock,
         MouseData => MouseData,
         MouseMessage => M,

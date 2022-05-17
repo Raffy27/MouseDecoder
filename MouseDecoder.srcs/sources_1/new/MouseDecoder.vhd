@@ -35,6 +35,7 @@ use Work.Mouse_Types.ALL;
 entity MouseDecoder is
     Port(
         Reset:          in  STD_LOGIC;
+        Clock:          in  STD_LOGIC;
         MouseClock:     in  STD_LOGIC;
         MouseData:      in  STD_LOGIC;
         MouseMessage:   out Mouse_Message;
@@ -45,6 +46,7 @@ end MouseDecoder;
 architecture Behavioral of MouseDecoder is
 signal MouseBits:   NATURAL := 0;
 signal MouseReg:    STD_LOGIC_VECTOR(42 downto 0) := (others => '0');
+signal Trigger:     STD_LOGIC;
 begin
     Count_Bits: process(Reset, MouseClock)
     begin
@@ -57,11 +59,6 @@ begin
             else
                 MouseBits <= 0;
             end if;
-            if MouseBits = 42 then
-                NewMessage <= '1';
-            else
-                NewMessage <= '0';
-            end if;
         end if;
     end process;
     
@@ -70,16 +67,33 @@ begin
         if Reset = '1' then
             MouseReg <= (others => '0');
         elsif falling_edge(MouseClock) then
+            Trigger <= '0';
             MouseReg <= MouseReg(41 downto 0) & MouseData;
             if MouseBits = 43 then
                 if IsMouseDataValid(MouseReg) then 
                     MouseMessage <= ParseMouseData(MouseReg);
-                    --NewMessage <= '1';
-                else
-                    --NewMessage <= '0';
+                    Trigger <= '1';
+                end if;
+            end if;
+        end if;
+    end process;
+    
+    Pulse_Gen: process(Reset, Clock)
+    variable Idle: Boolean := true;
+    begin
+        if Reset = '1' then
+            Idle := true;
+        elsif rising_edge(Clock) then
+            NewMessage <= '0';
+            if Idle then
+                if Trigger = '1' then
+                    NewMessage <= '1';
+                    Idle := false;
                 end if;
             else
-                --NewMessage <= '0';
+                if Trigger = '0' then
+                    Idle := true;
+                end if;
             end if;
         end if;
     end process;

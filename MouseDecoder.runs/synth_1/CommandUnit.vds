@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Mon May 16 22:44:11 2022
-# Process ID: 46584
+# Start of session at: Tue May 17 18:10:33 2022
+# Process ID: 119823
 # Current directory: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1
 # Command line: vivado -log CommandUnit.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CommandUnit.tcl
 # Log file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CommandUnit.vds
@@ -16,15 +16,15 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35ti'
 INFO: [Device 21-403] Loading part xc7a35ticpg236-1L
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 46609 
+INFO: Helper process launched with PID 119869 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1636.906 ; gain = 154.719 ; free physical = 319 ; free virtual = 4673
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1636.910 ; gain = 154.719 ; free physical = 1263 ; free virtual = 5579
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'CommandUnit' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:49]
-INFO: [Synth 8-3491] module 'MouseDecoder' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:35' bound to instance 'Decode_Message' of component 'MouseDecoder' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:146]
-INFO: [Synth 8-638] synthesizing module 'MouseDecoder' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:45]
-INFO: [Synth 8-256] done synthesizing module 'MouseDecoder' (1#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:45]
-INFO: [Synth 8-3491] module 'SSGDisplay' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:25' bound to instance 'Display_Number' of component 'SSGDisplay' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:154]
+INFO: [Synth 8-3491] module 'MouseDecoder' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:35' bound to instance 'Decode_Message' of component 'MouseDecoder' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:129]
+INFO: [Synth 8-638] synthesizing module 'MouseDecoder' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:46]
+INFO: [Synth 8-256] done synthesizing module 'MouseDecoder' (1#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd:46]
+INFO: [Synth 8-3491] module 'SSGDisplay' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:25' bound to instance 'Display_Number' of component 'SSGDisplay' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:138]
 INFO: [Synth 8-638] synthesizing module 'SSGDisplay' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:34]
 INFO: [Synth 8-3491] module 'Bin2Bcd' declared at '/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bin2Bcd.vhd:36' bound to instance 'Binary_To_BCD' of component 'Bin2Bcd' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:84]
 INFO: [Synth 8-638] synthesizing module 'Bin2Bcd' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/Bin2Bcd.vhd:45]
@@ -32,7 +32,7 @@ INFO: [Synth 8-256] done synthesizing module 'Bin2Bcd' (2#1) [/home/raffy/Dev/Mo
 INFO: [Synth 8-256] done synthesizing module 'SSGDisplay' (3#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd:34]
 INFO: [Synth 8-256] done synthesizing module 'CommandUnit' (4#1) [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:49]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1690.656 ; gain = 208.469 ; free physical = 339 ; free virtual = 4693
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1690.660 ; gain = 208.469 ; free physical = 1282 ; free virtual = 5600
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -45,10 +45,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1693.625 ; gain = 211.438 ; free physical = 338 ; free virtual = 4692
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.629 ; gain = 211.438 ; free physical = 1283 ; free virtual = 5596
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:07 . Memory (MB): peak = 1693.625 ; gain = 211.438 ; free physical = 338 ; free virtual = 4692
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1693.629 ; gain = 211.438 ; free physical = 1283 ; free virtual = 5596
 ---------------------------------------------------------------------------------
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
@@ -60,29 +60,29 @@ INFO: [Project 1-236] Implementation specific constraints were found while readi
 Resolution: To avoid this warning, move constraints listed in [.Xil/CommandUnit_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1865.375 ; gain = 0.000 ; free physical = 249 ; free virtual = 4603
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.379 ; gain = 0.000 ; free physical = 1203 ; free virtual = 5517
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1865.375 ; gain = 0.000 ; free physical = 249 ; free virtual = 4603
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.379 ; gain = 0.000 ; free physical = 1203 ; free virtual = 5517
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 310 ; free virtual = 4664
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1259 ; free virtual = 5570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35ticpg236-1L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 310 ; free virtual = 4664
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1259 ; free virtual = 5570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:11 ; elapsed = 00:00:13 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 312 ; free virtual = 4666
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:18 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1259 ; free virtual = 5570
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'State_reg' in module 'Bin2Bcd'
-INFO: [Synth 8-4471] merging register 'Number_reg[15:0]' into 'temp_reg[15:0]' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:83]
+INFO: [Synth 8-4471] merging register 'Number_reg[15:0]' into 'Temp_reg[15:0]' [/home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd:81]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -93,7 +93,7 @@ INFO: [Synth 8-4471] merging register 'Number_reg[15:0]' into 'temp_reg[15:0]' [
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'State_reg' using encoding 'sequential' in module 'Bin2Bcd'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 301 ; free virtual = 4655
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1252 ; free virtual = 5562
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -118,7 +118,7 @@ Detailed RTL Component Info :
 	               31 Bit    Registers := 2     
 	               16 Bit    Registers := 2     
 	                9 Bit    Registers := 3     
-	                1 Bit    Registers := 8     
+	                1 Bit    Registers := 10    
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 2     
@@ -156,7 +156,7 @@ Detailed RTL Component Info :
 	               43 Bit    Registers := 1     
 	               31 Bit    Registers := 1     
 	                9 Bit    Registers := 3     
-	                1 Bit    Registers := 6     
+	                1 Bit    Registers := 8     
 +---Muxes : 
 	   2 Input      6 Bit        Muxes := 1     
 Module Bin2Bcd 
@@ -231,7 +231,7 @@ INFO: [Synth 8-3886] merging instance 'Decode_Message/MouseMessage_reg[Z][2]' (F
 INFO: [Synth 8-3886] merging instance 'Decode_Message/MouseMessage_reg[Z][3]' (FDRE_1) to 'Decode_Message/MouseMessage_reg[Z][4]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\Decode_Message/MouseMessage_reg[Z][4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:15 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 289 ; free virtual = 4646
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:21 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1251 ; free virtual = 5562
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -243,13 +243,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 185 ; free virtual = 4542
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1134 ; free virtual = 5450
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 186 ; free virtual = 4543
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1134 ; free virtual = 5450
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -261,7 +261,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:19 ; elapsed = 00:00:22 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Technology Mapping : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1133 ; free virtual = 5448
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -285,7 +285,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished IO Insertion : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -298,7 +298,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -310,25 +310,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -346,15 +346,15 @@ Report Cell Usage:
 +------+-------+------+
 |1     |BUFG   |     2|
 |2     |CARRY4 |    27|
-|3     |LUT1   |    18|
-|4     |LUT2   |    27|
-|5     |LUT3   |    28|
-|6     |LUT4   |    23|
+|3     |LUT1   |    19|
+|4     |LUT2   |    28|
+|5     |LUT3   |    26|
+|6     |LUT4   |    22|
 |7     |LUT5   |    27|
-|8     |LUT6   |    31|
+|8     |LUT6   |    30|
 |9     |FDCE   |    69|
-|10    |FDRE   |   135|
-|11    |FDSE   |     1|
+|10    |FDPE   |     1|
+|11    |FDRE   |   137|
 |12    |IBUF   |     5|
 |13    |OBUF   |    27|
 +------+-------+------+
@@ -364,32 +364,32 @@ Report Instance Areas:
 |      |Instance          |Module       |Cells |
 +------+------------------+-------------+------+
 |1     |top               |             |   420|
-|2     |  Decode_Message  |MouseDecoder |   163|
+|2     |  Decode_Message  |MouseDecoder |   164|
 |3     |  Display_Number  |SSGDisplay   |   185|
 |4     |    Binary_To_BCD |Bin2Bcd      |   155|
 +------+------------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 181 ; free virtual = 4538
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:28 ; elapsed = 00:00:32 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1153 ; free virtual = 5467
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 1865.375 ; gain = 211.438 ; free physical = 230 ; free virtual = 4587
-Synthesis Optimization Complete : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 1865.375 ; gain = 383.188 ; free physical = 230 ; free virtual = 4587
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 1863.379 ; gain = 211.438 ; free physical = 1203 ; free virtual = 5516
+Synthesis Optimization Complete : Time (s): cpu = 00:00:28 ; elapsed = 00:00:33 . Memory (MB): peak = 1863.379 ; gain = 381.188 ; free physical = 1203 ; free virtual = 5516
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 27 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1865.375 ; gain = 0.000 ; free physical = 184 ; free virtual = 4541
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.379 ; gain = 0.000 ; free physical = 1160 ; free virtual = 5476
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 60 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1865.375 ; gain = 502.531 ; free physical = 283 ; free virtual = 4640
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1865.375 ; gain = 0.000 ; free physical = 283 ; free virtual = 4640
+synth_design: Time (s): cpu = 00:00:35 ; elapsed = 00:00:39 . Memory (MB): peak = 1863.379 ; gain = 497.562 ; free physical = 1257 ; free virtual = 5573
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1863.379 ; gain = 0.000 ; free physical = 1257 ; free virtual = 5573
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CommandUnit.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file CommandUnit_utilization_synth.rpt -pb CommandUnit_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Mon May 16 22:44:47 2022...
+INFO: [Common 17-206] Exiting Vivado at Tue May 17 18:11:24 2022...
