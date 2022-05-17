@@ -35,12 +35,15 @@ use work.Mouse_Types.all;
 
 entity CommandUnit is
     Port(
-        Debug:      out STD_LOGIC_VECTOR(15 downto 0);
-        DebugSwitch:in STD_LOGIC;
-        Reset :     in STD_LOGIC;
-        Clock :     in STD_LOGIC;
-        MouseClock: in STD_LOGIC;
-        MouseData:  in STD_LOGIC;
+        Reset:      in  STD_LOGIC;
+        Clock:      in  STD_LOGIC;
+        MouseClock: in  STD_LOGIC;
+        MouseData:  in  STD_LOGIC;
+        
+        ReverseSw:  in  STD_LOGIC;
+        DebugSw:    in  STD_LOGIC;
+        LED:        out STD_LOGIC_VECTOR(15 downto 0);
+        
         Segments:   out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
@@ -74,20 +77,29 @@ signal NewMessage: STD_LOGIC;
 signal X, Y: STD_LOGIC := '0';
 
 begin
-    process(Reset, NewMessage, M, Number)
-    variable Temp: STD_LOGIC_VECTOR(15 downto 0);
+    Count_Clicks: process(Reset, NewMessage, M, Number)
+    variable Temp: STD_LOGIC_VECTOR(15 downto 0) := (others => '0');
     begin
         if Reset = '1' then
             Number <= (others => '0');
             Temp := (others => '0');
             X <= '0';
             Y <= '0';
-        elsif rising_edge(NewMessage) then
-            if M.LeftClick = '0' and X = '1' then
-                Temp := Temp + 1;
-            end if;
-            if M.RightClick = '0' and Y = '1' and Temp > 0 then
-                Temp := Temp - 1;
+        elsif falling_edge(NewMessage) then
+            if ReverseSw = '0' then
+                if M.LeftClick = '0' and X = '1' then
+                    Temp := Temp + 1;
+                end if;
+                if M.RightClick = '0' and Y = '1' and Temp > 0 then
+                    Temp := Temp - 1;
+                end if;
+            else
+                if M.LeftClick = '0' and X = '1' and Temp > 0 then
+                    Temp := Temp - 1;
+                end if;
+                if M.RightClick = '0' and Y = '1' then
+                    Temp := Temp + 1;
+                end if;
             end if;
             X <= M.LeftClick;
             Y <= M.RightClick;
@@ -95,33 +107,30 @@ begin
         end if;
     end process;
     
-    
-    Debugging: process(Clock, DebugSwitch, NewMessage, M)
+    LED_Control: process(Reset, Clock, DebugSw, ReverseSw, M, Number)
     begin
-        if falling_edge(Clock) then
-            if DebugSwitch = '0' then
-                Debug(15) <= M.LeftClick;
-                Debug(14) <= M.RightClick;
+        if Reset = '1' then
+            LED <= (others => '1');
+        elsif falling_edge(Clock) then
+            LED(15) <= ReverseSw;       -- Leftmost LED corresponds to IS_REVERSED
+            if DebugSw = '1' then
+                LED(14) <= '0';
+                LED(13) <= M.LeftClick;
+                LED(12) <= M.MiddleClick;
+                LED(11) <= M.RightClick;
+                LED(10) <= '0';
+                LED(9) <= M.OverflowX;
+                LED(8) <= M.OverflowY;
                 
+                if M.X = 0 then LED(7) <= '0'; else LED(7) <= '1'; end if;
+                if M.Y = 0 then LED(6) <= '0'; else LED(6) <= '1'; end if;
+                if M.Z = 0 then LED(5) <= '0'; else LED(5) <= '1'; end if;
                 
-                if M.X = 0 then
-                    Debug(11) <= '1';
-                else
-                    Debug(11) <= '0';
-                end if;
-                if M.Y = 0 then
-                    Debug(10) <= '1';
-                else
-                    Debug(10) <= '0';
-                end if;
-                if M.Z = 0 then
-                    Debug(9) <= '1';
-                else
-                    Debug(9) <= '0';
-                end if;
-                Debug(7 downto 0) <= (others => '0');
+                LED(4) <= '0';
+                
+                LED(3 downto 0) <= Number(3 downto 0);
             else
-                Debug <= Number;
+                LED(14 downto 0) <= (others => '0');
             end if;
         end if;
     end process;
