@@ -1,6 +1,9 @@
 # Mouse Interfacing
 > A18 - FPGA and mouse application
 
+2022
+<name here>
+
 ## Problem Statement
 Implement an application that allows the user to count the number of mouse clicks.
 Functional requirements:
@@ -22,7 +25,7 @@ Naming convention and capitalization
 
 ## Overview
 
-The general idea of the solution is to receive the message packets sent by the mouse, extract the significant bits from them, detect actual mouse clicks, and modify the internal state accordingly. This state should then be transformed into Binary Coded Decimal representation and displayed on the Seven Segment Display.
+The general idea of the solution is to receive the message packets sent by the mouse, extract the significant bits from them, detect actual mouse clicks, and modify the internal state accordingly. This state should then be transformed into Binary Coded Decimal representation and shown on the Seven Segment Display.
 The internal state management should be implemented in the form of a bidirectional counter, in accordance with the conditions governing the state transitions (for example, if the reverse switch is toggled, left clicks result in a decrement and right clicks result in an increment).
 
 From a high-level perspective, the solution is divided into the following parts:
@@ -34,6 +37,13 @@ From a high-level perspective, the solution is divided into the following parts:
 There is also an additional utility library focused on structuring and validating mouse packets. The goal of this library is to provide an intuitive interface to work with, instead of having to manually count bits to determine their meaning.
 
 ### Hardware
+
+The list of hardware used for this project is as follows:
+* **FPGA:** Digilent Basys 3 (Xilinx Artix-7) board (XC7A35T-ICPG236C)
+* **Mouse:** Logitech Pebble M350 Wireless Mouse
+* Nokia CA-101 Micro USB data cable
+
+With some changes to the constraints, it can be used with other boards as well. All the tested mouse models yielded similar result, the only requirement is for the mouse to have a scroll wheel and support the Microsoft Intellimouse protocol.
 
 ### Communication
 
@@ -62,9 +72,20 @@ For example, a valid binary sequence would be:
 | 9     | 1   | Parity bit |
 | 10    | 0   | Stop bit |
 | 11    | 0   | Start bit |
-...
-
-## Detailed Implementation
+| 12    | 0   | MSB of X movement |
+| ...   | ... | Bits of X movement |
+| ...   | ... | Bits of Y movement |
+| 1x    | 1   | Parity bit |
+| 1x    | 1   | Stop bit |
+| 1x    | 0   | Start bit |
+| 1x    | 0   | MSB of Y movement |
+| ...   | ... | Bits of Y movement |
+| 1x    | 0   | Parity bit |
+| 1x    | 1   | Stop bit |
+| 1x    | 0   | Start bit |
+| 1x    | 0   | MSB of Z movement |
+| ...   | ... | Bits of Z movement |
+| 43    | 1   | Stop bit |
 
 The data structure defined in the convenience library is used to represent the incoming mouse packets.
 
@@ -82,9 +103,11 @@ type Mouse_Message is record
 end record;
 ```
 
+## Detailed Implementation
+
 ### Alternative Solutions
 
-* simple counter
+A less sophisticated, but more intuitive solution is to use a simple modulo-43 counter to count the number of bits sent by the mouse, and process the relevant bits according to this counter (every first bit is interpreted as a left click, and so on). This would reduce the cost and complexity of the solution because it would eliminate the need for intermediate registers.
 
 ## Debugging
 
@@ -99,8 +122,14 @@ An example of its output is shown below.
 }
 ```
 
+Realtime debugging is also possible. To see some important information about incoming mouse packets, the debug switch must be toggled (R2). After toggling the switch, some of the LEDs will light up, according to the following pattern:
+| LD15 | LD14 | LD13 | LD12 | LD11 | LD10 | LD9  | LD8  | LD7  | LD6  | LD5  | LD4  | LD3  | LD2  | LD1  | LD0  |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| 
+
 ## Results
 
+This is an animated showcase of the solution.
 <GIF of the thing in action>
 
 ## Acknowledgements
