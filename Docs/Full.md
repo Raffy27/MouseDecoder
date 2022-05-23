@@ -43,9 +43,11 @@ The list of hardware used for this project is as follows:
 * **Mouse:** Logitech Pebble M350 Wireless Mouse
 * Nokia CA-101 Micro USB data cable
 
-With some changes to the constraints, it can be used with other boards as well. All the tested mouse models yielded similar result, the only requirement is for the mouse to have a scroll wheel and support the Microsoft Intellimouse protocol.
+With some changes to the constraints, it can be used with other boards as well. All the tested mouse models yielded similar results, the only requirement is for the mouse to have a scroll wheel and support the Microsoft Intellimouse protocol.
 
 ### Communication
+
+Communication with the mouse takes place through an integrated USB port, and a PS/2 decoder, which makes it easier to work with external devices. Accoring to the documentation of this protocol, two inputs are generated: a clock input for notifying the receiving circuitry of the fact that there is new data present, and the actual data input that should be processed.
 
 A valid transmission from the mouse is defined in the following table.
 |  | Bit 7 | Bit 6 | Bit 5 | Bit 4 | Bit 3 | Bit 2 | Bit 1 | Bit 0 |
@@ -60,32 +62,34 @@ Additionally, transmissions are delimited by a *1* stop bit (used for signaling 
 For example, a valid binary sequence would be:
 | Index | Bit | Description |
 |:-----:|:---:|-------------|
-| 0     | 0   | Start bit   |
-| 1     | 1   | Left mouse button currently pressed |
-| 2     | 0   | Right mouse button currently not pressed |
-| 3     | 0   | Middle mouse button currently not pressed |
-| 4     | 1   | Always *1*  |
-| 5     | 0   | X movement is a positive amount (^) |
-| 6     | 1   | Y movement is a negative amount (^) |
-| 7     | 0   | No overflow for X |
-| 8     | 0   | No overflow for Y |
-| 9     | 1   | Parity bit |
-| 10    | 0   | Stop bit |
-| 11    | 0   | Start bit |
-| 12    | 0   | MSB of X movement |
+| 42    | 0   | Start bit   |
+| 41    | 1   | Left mouse button currently pressed |
+| 40    | 0   | Right mouse button currently not pressed |
+| 39    | 0   | Middle mouse button currently not pressed |
+| 38    | 1   | Always *1*  |
+| 37    | 0   | X movement is a positive amount (^) |
+| 36    | 1   | Y movement is a negative amount (^) |
+| 35    | 0   | No overflow for X |
+| 34    | 0   | No overflow for Y |
+| 33    | 1   | Parity bit |
+| 32    | 0   | Stop bit |
+| 31    | 0   | Start bit |
+| 30    | 0   | MSB of X movement |
 | ...   | ... | Bits of X movement |
+| 23    | ... | LSB of Y movement |
+| 22    | 1   | Parity bit |
+| 21    | 1   | Stop bit |
+| 20    | 0   | Start bit |
+| 19    | 0   | MSB of Y movement |
 | ...   | ... | Bits of Y movement |
-| 1x    | 1   | Parity bit |
-| 1x    | 1   | Stop bit |
-| 1x    | 0   | Start bit |
-| 1x    | 0   | MSB of Y movement |
-| ...   | ... | Bits of Y movement |
-| 1x    | 0   | Parity bit |
-| 1x    | 1   | Stop bit |
-| 1x    | 0   | Start bit |
-| 1x    | 0   | MSB of Z movement |
+| 12    | ... | LSB of Y movement |
+| 11    | 0   | Parity bit |
+| 10    | 1   | Stop bit |
+| 9     | 0   | Start bit |
+| 8     | 0   | MSB of Z movement |
 | ...   | ... | Bits of Z movement |
-| 43    | 1   | Stop bit |
+| 1     | ... | LSB of Z movement |
+| 0     | 1   | Stop bit |
 
 The data structure defined in the convenience library is used to represent the incoming mouse packets.
 
@@ -105,9 +109,23 @@ end record;
 
 ## Detailed Implementation
 
+This diagram is an overview of how the logic of the project is structured.
+
+The **CounterUnit** is the top-level component, responsible for managing the internal state (current number of clicks). Some of its inputs are passed further down the hierarchy to ensure a structural approach.
+
+As the name suggests, the **MouseDecoder** unit has the role of receiving and decoding the mouse packets. Whenever the `MouseClock` signal becomes high, it increments an internal counter which keeps track of the number of bits received from the mouse. On the falling edge of the `MouseClock`, the new bit from `MouseData` is stored in a shift register. Whenever the number of received bits reaches `43` (thus the shift register is full), the current value of the shift register is passed to the **MouseTypes** library. If the packet is determined to be valid, a single clock pulse is generated on the `NewMessage` signal, and the state of this unit is reset.
+
+The **MouseTypes** library contains utility functions to check whether the received bits are indeed valid (parity and constant sanity checks) and to convert these into the representation specified above.
+
+On the falling edge of the `NewMessage` signal, the **CounterUnit** checks the `LeftClick` and `RightClick` values of the new packet against the outputs of two D flip-flops to determine whether a click occurred, and if so, increments or decrements the internal state accordingly. It also considers the value of the `ReverseSw` input, which is tied to an LED to indicate whether the circuit is functioning in reverse mode.
+
+The internal state is fed to the **SSGDisplay** unit, which calls upon a binary to BCD decoder (**Bin2Bcd**) component to obtain the BCD representation of its input. Using a multiplexing solution, it then generates and updates the necessary anode patterns while selecting the corresponding digit, in order to reach a refresh rate that the human eye perceives.
+
+This project also supports a Debug mode, which is activated by toggling the `DebugSw` input. In this mode, details about the arriving mouse packets (such as whether the buttons are pressed, the movement bytes are currently changing, an overflow occurred, etc.) are displayed on a row of LEDs. See below for details.
+
 ### Alternative Solutions
 
-A less sophisticated, but more intuitive solution is to use a simple modulo-43 counter to count the number of bits sent by the mouse, and process the relevant bits according to this counter (every first bit is interpreted as a left click, and so on). This would reduce the cost and complexity of the solution because it would eliminate the need for intermediate registers.
+A less sophisticated, but more intuitive solution would be to use a simple modulo-43 counter to count the number of bits sent by the mouse, and process the relevant bits according to this counter (every first bit is interpreted as a left click, and so on). This would reduce the cost and complexity of the solution because it would eliminate the need for intermediate registers, but it does not offer the versatility of the current solution, which in turn achieves true interfacing by parsing the packets.
 
 ## Debugging
 
