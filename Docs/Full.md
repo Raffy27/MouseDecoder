@@ -5,6 +5,7 @@
 <name here>
 
 ## Problem Statement
+
 Implement an application that allows the user to count the number of mouse clicks.
 Functional requirements:
 * Extisting RESET button that will clear the SSD display (status "0000")
@@ -17,11 +18,13 @@ Functional requirements:
 The project will be carried out by **2 students.**
 
 ### Changes in Terminology
-increase -> increment
-decrease -> decrement
-IS_LEFT
-REVERSE
-Naming convention and capitalization
+
+To ensure the internal consistency of the project, the following changes have been made to the terminology:
+* increase -> increment, decrease -> decrement
+* IS_LEFT -> leftmost LED
+* REVERSE -> rightmost switch
+
+Naming convention and capitalization throughout the project is PascalCase, except for types provided by built-in libraries. Single letter variables usually represent temporary or otherwise less significant bits of data.
 
 ## Overview
 
@@ -44,6 +47,12 @@ The list of hardware used for this project is as follows:
 * Nokia CA-101 Micro USB data cable
 
 With some changes to the constraints, it can be used with other boards as well. All the tested mouse models yielded similar results, the only requirement is for the mouse to have a scroll wheel and support the Microsoft Intellimouse protocol.
+
+### Software
+
+This project was built in the Xilinx Vivado IDE.
+
+A Git repository is available for the project, and the source code can be found [here](https://github.com/Raffy27/MouseDecoder).
 
 ### Communication
 
@@ -109,7 +118,9 @@ end record;
 
 ## Detailed Implementation
 
-This diagram is an overview of how the logic of the project is structured.
+![Overview](OverviewCircuit.png)
+
+This diagram is an overview of how the logic of the project is structured. Implementationally equivalent, although more rudimentary dot diagrams are available [here](https://gist.github.com/Raffy27/4ba46eaca7d5c0104027da35ae62520e).
 
 The **CounterUnit** is the top-level component, responsible for managing the internal state (current number of clicks). Some of its inputs are passed further down the hierarchy to ensure a structural approach.
 
@@ -120,6 +131,8 @@ The **MouseTypes** library contains utility functions to check whether the recei
 On the falling edge of the `NewMessage` signal, the **CounterUnit** checks the `LeftClick` and `RightClick` values of the new packet against the outputs of two D flip-flops to determine whether a click occurred, and if so, increments or decrements the internal state accordingly. It also considers the value of the `ReverseSw` input, which is tied to an LED to indicate whether the circuit is functioning in reverse mode.
 
 The internal state is fed to the **SSGDisplay** unit, which calls upon a binary to BCD decoder (**Bin2Bcd**) component to obtain the BCD representation of its input. Using a multiplexing solution, it then generates and updates the necessary anode patterns while selecting the corresponding digit, in order to reach a refresh rate that the human eye perceives.
+
+A `Reset` signal acts asynchronously on the whole project, setting the internal state to zero, and halting the decoding process. The LEDs wil also flash for a brief moment.
 
 This project also supports a Debug mode, which is activated by toggling the `DebugSw` input. In this mode, details about the arriving mouse packets (such as whether the buttons are pressed, the movement bytes are currently changing, an overflow occurred, etc.) are displayed on a row of LEDs. See below for details.
 
@@ -143,7 +156,9 @@ An example of its output is shown below.
 Realtime debugging is also possible. To see some important information about incoming mouse packets, the debug switch must be toggled (R2). After toggling the switch, some of the LEDs will light up, according to the following pattern:
 | LD15 | LD14 | LD13 | LD12 | LD11 | LD10 | LD9  | LD8  | LD7  | LD6  | LD5  | LD4  | LD3  | LD2  | LD1  | LD0  |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| 
+| Reverse | 0 | LeftClick | MiddleClick | RightClick | 0 | X Overflow | Y Overflow| X Change | Y Change | Z Change | 0 | Num(3) | Num(2) | Num(1) | Num(0) |
+
+Num(n) represents the lower bits of the internal state. Using these bits of information, it is possible to debug potential processing and logic-related errors.
 
 ## Results
 
