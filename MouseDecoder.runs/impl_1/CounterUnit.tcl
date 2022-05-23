@@ -74,9 +74,9 @@ set rc [catch {
   set_property parent.project_path /home/raffy/Dev/MouseDecoder/MouseDecoder.xpr [current_project]
   set_property ip_output_repo /home/raffy/Dev/MouseDecoder/MouseDecoder.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CommandUnit.dcp
+  add_files -quiet /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/synth_1/CounterUnit.dcp
   read_xdc /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/constrs_1/new/Contraints.xdc
-  link_design -top CommandUnit -part xc7a35ticpg236-1L
+  link_design -top CounterUnit -part xc7a35ticpg236-1L
   close_msg_db -file init_design.pb
 } RESULT]
 if {$rc} {
@@ -92,8 +92,8 @@ set ACTIVE_STEP opt_design
 set rc [catch {
   create_msg_db opt_design.pb
   opt_design 
-  write_checkpoint -force CommandUnit_opt.dcp
-  create_report "impl_1_opt_report_drc_0" "report_drc -file CommandUnit_drc_opted.rpt -pb CommandUnit_drc_opted.pb -rpx CommandUnit_drc_opted.rpx"
+  write_checkpoint -force CounterUnit_opt.dcp
+  create_report "impl_1_opt_report_drc_0" "report_drc -file CounterUnit_drc_opted.rpt -pb CounterUnit_drc_opted.pb -rpx CounterUnit_drc_opted.rpx"
   close_msg_db -file opt_design.pb
 } RESULT]
 if {$rc} {
@@ -112,10 +112,10 @@ set rc [catch {
     implement_debug_core 
   } 
   place_design 
-  write_checkpoint -force CommandUnit_placed.dcp
-  create_report "impl_1_place_report_io_0" "report_io -file CommandUnit_io_placed.rpt"
-  create_report "impl_1_place_report_utilization_0" "report_utilization -file CommandUnit_utilization_placed.rpt -pb CommandUnit_utilization_placed.pb"
-  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt"
+  write_checkpoint -force CounterUnit_placed.dcp
+  create_report "impl_1_place_report_io_0" "report_io -file CounterUnit_io_placed.rpt"
+  create_report "impl_1_place_report_utilization_0" "report_utilization -file CounterUnit_utilization_placed.rpt -pb CounterUnit_utilization_placed.pb"
+  create_report "impl_1_place_report_control_sets_0" "report_control_sets -verbose -file CounterUnit_control_sets_placed.rpt"
   close_msg_db -file place_design.pb
 } RESULT]
 if {$rc} {
@@ -131,19 +131,19 @@ set ACTIVE_STEP route_design
 set rc [catch {
   create_msg_db route_design.pb
   route_design 
-  write_checkpoint -force CommandUnit_routed.dcp
-  create_report "impl_1_route_report_drc_0" "report_drc -file CommandUnit_drc_routed.rpt -pb CommandUnit_drc_routed.pb -rpx CommandUnit_drc_routed.rpx"
-  create_report "impl_1_route_report_methodology_0" "report_methodology -file CommandUnit_methodology_drc_routed.rpt -pb CommandUnit_methodology_drc_routed.pb -rpx CommandUnit_methodology_drc_routed.rpx"
-  create_report "impl_1_route_report_power_0" "report_power -file CommandUnit_power_routed.rpt -pb CommandUnit_power_summary_routed.pb -rpx CommandUnit_power_routed.rpx"
-  create_report "impl_1_route_report_route_status_0" "report_route_status -file CommandUnit_route_status.rpt -pb CommandUnit_route_status.pb"
-  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file CommandUnit_timing_summary_routed.rpt -pb CommandUnit_timing_summary_routed.pb -rpx CommandUnit_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file CommandUnit_incremental_reuse_routed.rpt"
-  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file CommandUnit_clock_utilization_routed.rpt"
-  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file CommandUnit_bus_skew_routed.rpt -pb CommandUnit_bus_skew_routed.pb -rpx CommandUnit_bus_skew_routed.rpx"
+  write_checkpoint -force CounterUnit_routed.dcp
+  create_report "impl_1_route_report_drc_0" "report_drc -file CounterUnit_drc_routed.rpt -pb CounterUnit_drc_routed.pb -rpx CounterUnit_drc_routed.rpx"
+  create_report "impl_1_route_report_methodology_0" "report_methodology -file CounterUnit_methodology_drc_routed.rpt -pb CounterUnit_methodology_drc_routed.pb -rpx CounterUnit_methodology_drc_routed.rpx"
+  create_report "impl_1_route_report_power_0" "report_power -file CounterUnit_power_routed.rpt -pb CounterUnit_power_summary_routed.pb -rpx CounterUnit_power_routed.rpx"
+  create_report "impl_1_route_report_route_status_0" "report_route_status -file CounterUnit_route_status.rpt -pb CounterUnit_route_status.pb"
+  create_report "impl_1_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file CounterUnit_timing_summary_routed.rpt -pb CounterUnit_timing_summary_routed.pb -rpx CounterUnit_timing_summary_routed.rpx -warn_on_violation "
+  create_report "impl_1_route_report_incremental_reuse_0" "report_incremental_reuse -file CounterUnit_incremental_reuse_routed.rpt"
+  create_report "impl_1_route_report_clock_utilization_0" "report_clock_utilization -file CounterUnit_clock_utilization_routed.rpt"
+  create_report "impl_1_route_report_bus_skew_0" "report_bus_skew -warn_on_violation -file CounterUnit_bus_skew_routed.rpt -pb CounterUnit_bus_skew_routed.pb -rpx CounterUnit_bus_skew_routed.rpx"
   close_msg_db -file route_design.pb
 } RESULT]
 if {$rc} {
-  write_checkpoint -force CommandUnit_routed_error.dcp
+  write_checkpoint -force CounterUnit_routed_error.dcp
   step_failed route_design
   return -code error $RESULT
 } else {
@@ -155,10 +155,10 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
-  catch { write_mem_info -force CommandUnit.mmi }
-  write_bitstream -force CommandUnit.bit 
-  catch {write_debug_probes -quiet -force CommandUnit}
-  catch {file copy -force CommandUnit.ltx debug_nets.ltx}
+  catch { write_mem_info -force CounterUnit.mmi }
+  write_bitstream -force CounterUnit.bit 
+  catch {write_debug_probes -quiet -force CounterUnit}
+  catch {file copy -force CounterUnit.ltx debug_nets.ltx}
   close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {

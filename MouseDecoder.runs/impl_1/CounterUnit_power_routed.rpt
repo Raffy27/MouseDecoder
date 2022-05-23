@@ -1,10 +1,10 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date             : Tue May 17 19:05:32 2022
+| Date             : Mon May 23 18:08:34 2022
 | Host             : Popsicle running 64-bit Zorin OS 16.1
-| Command          : report_power -file CommandUnit_power_routed.rpt -pb CommandUnit_power_summary_routed.pb -rpx CommandUnit_power_routed.rpx
-| Design           : CommandUnit
+| Command          : report_power -file CounterUnit_power_routed.rpt -pb CounterUnit_power_summary_routed.pb -rpx CounterUnit_power_routed.rpx
+| Design           : CounterUnit
 | Device           : xc7a35ticpg236-1L
 | Design State     : routed
 | Grade            : industrial
@@ -138,7 +138,7 @@ Table of Contents
 +-------------------+-----------+
 | Name              | Power (W) |
 +-------------------+-----------+
-| CommandUnit       |     6.619 |
+| CounterUnit       |     6.619 |
 |   Decode_Message  |     0.325 |
 |   Display_Number  |     0.780 |
 |     Binary_To_BCD |     0.720 |

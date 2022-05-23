@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:47:09 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Tue May 17 19:04:15 2022
-# Process ID: 143142
+# Start of session at: Mon May 23 18:07:17 2022
+# Process ID: 11860
 # Current directory: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/impl_1
-# Command line: vivado -log CommandUnit.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source CommandUnit.tcl -notrace
-# Log file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/impl_1/CommandUnit.vdi
+# Command line: vivado -log CounterUnit.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source CounterUnit.tcl -notrace
+# Log file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/impl_1/CounterUnit.vdi
 # Journal file: /home/raffy/Dev/MouseDecoder/MouseDecoder.runs/impl_1/vivado.jou
 #-----------------------------------------------------------
-source CommandUnit.tcl -notrace
+source CounterUnit.tcl -notrace

@@ -6,4 +6,4 @@
 # Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 #
 
-vivado -log CommandUnit.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source CommandUnit.tcl -notrace
+vivado -log CounterUnit.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source CounterUnit.tcl -notrace

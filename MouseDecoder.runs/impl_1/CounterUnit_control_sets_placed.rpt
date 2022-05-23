@@ -1,10 +1,10 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (lin64) Build 2552052 Fri May 24 14:47:09 MDT 2019
-| Date         : Tue May 17 19:05:00 2022
+| Date         : Mon May 23 18:08:02 2022
 | Host         : Popsicle running 64-bit Zorin OS 16.1
-| Command      : report_control_sets -verbose -file CommandUnit_control_sets_placed.rpt
-| Design       : CommandUnit
+| Command      : report_control_sets -verbose -file CounterUnit_control_sets_placed.rpt
+| Design       : CounterUnit
 | Device       : xc7a35ti
 ----------------------------------------------------------------------------------------
 

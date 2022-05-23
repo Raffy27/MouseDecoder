@@ -18,7 +18,6 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
-set_param chipscope.maxJobs 2
 create_project -in_memory -part xc7a35ticpg236-1L
 
 set_param project.singleFileAddWarning.threshold 0
@@ -35,7 +34,7 @@ read_vhdl -library xil_defaultlib {
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseTypes.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/MouseDecoder.vhd
   /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/SSGDisplay.vhd
-  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CommandUnit.vhd
+  /home/raffy/Dev/MouseDecoder/MouseDecoder.srcs/sources_1/new/CounterUnit.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -51,12 +50,12 @@ set_property used_in_implementation false [get_files /home/raffy/Dev/MouseDecode
 set_param ips.enableIPCacheLiteLoad 1
 close [open __synthesis_is_running__ w]
 
-synth_design -top CommandUnit -part xc7a35ticpg236-1L
+synth_design -top CounterUnit -part xc7a35ticpg236-1L
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef CommandUnit.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file CommandUnit_utilization_synth.rpt -pb CommandUnit_utilization_synth.pb"
+write_checkpoint -force -noxdef CounterUnit.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file CounterUnit_utilization_synth.rpt -pb CounterUnit_utilization_synth.pb"
 file delete __synthesis_is_running__
 close [open __synthesis_is_complete__ w]

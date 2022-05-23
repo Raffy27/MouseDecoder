@@ -33,7 +33,7 @@ use work.Mouse_Types.all;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity CommandUnit is
+entity CounterUnit is
     Port(
         Reset:      in  STD_LOGIC;
         Clock:      in  STD_LOGIC;
@@ -47,9 +47,9 @@ entity CommandUnit is
         Segments:   out STD_LOGIC_VECTOR(6 downto 0);
         Anodes:     out STD_LOGIC_VECTOR(3 downto 0)
     );
-end CommandUnit;
+end CounterUnit;
 
-architecture Behavioral of CommandUnit is
+architecture Behavioral of CounterUnit is
 
 component SSGDisplay is
     Port(
