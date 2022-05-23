@@ -1,0 +1,123 @@
+<svg width="916" height="874" viewBox="0 0 687 655.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="translate(5.146067415730337,585.4393297688346) scale(1.2865168539325842)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-404.6 530,-404.6 530,4 -4,4"/>
+<!-- inputs -->
+<g id="node1" class="node">
+<title>inputs</title>
+<polygon fill="none" stroke="black" points="504,-400.6 0,-400.6 0,-364.6 504,-364.6 504,-400.6"/>
+<text text-anchor="middle" x="252" y="-378.4" font-family="Times,serif" font-size="14.00">inputs</text>
+</g><g id="clust2" class="cluster">
+<title>cluster_reg</title>
+<polygon fill="none" stroke="black" points="232,-209 232,-285.8 518,-285.8 518,-209 232,-209"/>
+<text text-anchor="middle" x="375" y="-269.2" font-family="Times,serif" font-size="14.00">MouseReg</text>
+</g>
+<!-- cu -->
+
+<!-- inputs&#45;&gt;cu -->
+<g id="edge1" class="edge">
+<title>inputs-&gt;mcdiv</title>
+<path fill="none" stroke="black" d="M237,-364.33C237,-351.11 237,-334.6 237,-328.87"/>
+<text text-anchor="middle" x="199.47" y="-333.07" font-family="Times,serif" font-size="14.00">MouseClock </text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+
+<!-- inputs&#45;&gt;cu -->
+
+<!-- mdec -->
+<g id="node2" class="node">
+<title>counter</title>
+<polygon fill="none" stroke="black" points="222.49,-289 115.51,-289 115.51,-181 222.49,-181 222.49,-289"/>
+<text text-anchor="middle" x="169" y="-230.8" font-family="Times,serif" font-size="14.00">Counter mod 43</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="node8" class="node">
+<title>outputs</title>
+<polygon fill="none" stroke="black" points="463,-36 153,-36 153,0 463,0 463,-36"/>
+<text text-anchor="middle" x="308" y="-13.8" font-family="Times,serif" font-size="14.00">outputs</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="edge8" class="edge">
+<title>counter-&gt;outputs</title>
+<path fill="none" stroke="black" d="M187.75,-180.8C187.75,-180.8 187.75,-46.37 187.75,-46.37"/>
+<polygon fill="black" stroke="black" points="191.25,-46.37 187.75,-36.37 184.25,-46.37 191.25,-46.37"/>
+<text text-anchor="middle" x="148.29" y="-40.57" font-family="Times,serif" font-size="14.00">NewMessage </text>
+<text text-anchor="middle" x="178.8" y="-168.2" font-family="Times,serif" font-size="14.00">TC</text>
+</g>
+<!-- ssg -->
+<g id="edge2" class="edge">
+<title>mcdiv-&gt;counter</title>
+<path fill="none" stroke="black" d="M235.32,-326C224.85,-326 169,-326 169,-326 169,-326 169,-299.25 169,-299.25"/>
+<polygon fill="black" stroke="black" points="172.5,-299.25 169,-289.25 165.5,-299.25 172.5,-299.25"/>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge3" class="edge">
+<title>mcdiv-&gt;reg0</title>
+<path fill="none" stroke="black" d="M237,-324.88C237,-311.7 237,-235 237,-235 237,-235 237.28,-235 237.28,-235"/>
+<polygon fill="black" stroke="black" points="229.77,-238.5 239.77,-235 229.77,-231.5 229.77,-238.5"/>
+</g>
+<!-- cu&#45;&gt;ssg -->
+
+<!-- cu&#45;&gt;ssg -->
+<g id="edge4" class="edge">
+<title>reg0-&gt;reg1</title>
+<path fill="none" stroke="black" d="M294.22,-235C294.22,-235 301.74,-235 301.74,-235"/>
+<polygon fill="black" stroke="black" points="301.74,-238.5 311.74,-235 301.74,-231.5 301.74,-238.5"/>
+</g>
+<!-- outputs -->
+
+<!-- cu&#45;&gt;outputs -->
+<g id="node4" class="node">
+<title>reg0</title>
+<polygon fill="none" stroke="black" points="294,-253 240,-253 240,-217 294,-217 294,-253"/>
+<text text-anchor="middle" x="267" y="-230.8" font-family="Times,serif" font-size="14.00">D₀</text>
+</g><g id="edge5" class="edge">
+<title>reg1-&gt;regdot</title>
+<path fill="none" stroke="black" d="M366.22,-235C366.22,-235 373.74,-235 373.74,-235"/>
+<polygon fill="black" stroke="black" points="373.74,-238.5 383.74,-235 373.74,-231.5 373.74,-238.5"/>
+</g>
+<!-- b2b -->
+<g id="edge7" class="edge">
+<title>inputs-&gt;reg0</title>
+<path fill="none" stroke="black" d="M267,-364.5C267,-364.5 267,-263.25 267,-263.25"/>
+<polygon fill="black" stroke="black" points="270.5,-263.25 267,-253.25 263.5,-263.25 270.5,-263.25"/>
+<text text-anchor="middle" x="234.72999999999996" y="-301.27" font-family="Times,serif" font-size="14.00">MouseData</text>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="edge6" class="edge">
+<title>regdot-&gt;regn</title>
+<path fill="none" stroke="black" d="M438.22,-235C438.22,-235 445.74,-235 445.74,-235"/>
+<polygon fill="black" stroke="black" points="445.74,-238.5 455.74,-235 445.74,-231.5 445.74,-238.5"/>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="node9" class="node">
+<title>mtypes</title>
+<polygon fill="none" stroke="black" points="468.82,-145 465.82,-149 444.82,-149 441.82,-145 377.18,-145 377.18,-109 468.82,-109 468.82,-145"/>
+<text text-anchor="middle" x="423" y="-122.8" font-family="Times,serif" font-size="14.00">Mouse Types</text>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="edge9" class="edge">
+<title>regn-&gt;mtypes</title>
+<path fill="none" stroke="black" d="M462.46,-216.68C462.46,-216.68 462.46,-155.05 462.46,-155.05"/>
+<polygon fill="black" stroke="black" points="465.96,-155.05 462.46,-145.05 458.96,-155.05 465.96,-155.05"/>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="edge10" class="edge">
+<title>mtypes-&gt;outputs</title>
+<path fill="none" stroke="black" d="M420.04,-108.51C420.04,-108.51 420.04,-46.22 420.04,-46.22"/>
+<polygon fill="black" stroke="black" points="423.54,-46.22 420.04,-36.22 416.54,-46.22 423.54,-46.22"/>
+<text text-anchor="middle" x="376.5" y="-81.56" font-family="Times,serif" font-size="14.00">MouseMessage</text>
+</g>
+<g id="node5" class="node">
+<title>reg1</title>
+<polygon fill="none" stroke="black" points="366,-253 312,-253 312,-217 366,-217 366,-253"/>
+<text text-anchor="middle" x="339" y="-230.8" font-family="Times,serif" font-size="14.00">D₁</text>
+</g><g id="node6" class="node">
+<title>regdot</title>
+<polygon fill="none" stroke="black" points="438,-253 384,-253 384,-217 438,-217 438,-253"/>
+<text text-anchor="middle" x="411" y="-230.8" font-family="Times,serif" font-size="14.00">...</text>
+</g><g id="node7" class="node">
+<title>regn</title>
+<polygon fill="none" stroke="black" points="510,-253 456,-253 456,-217 510,-217 510,-253"/>
+<text text-anchor="middle" x="483" y="-230.8" font-family="Times,serif" font-size="14.00">D₄₁</text>
+</g></g>
+</svg>

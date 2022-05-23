@@ -1,0 +1,180 @@
+<svg width="916" height="874" viewBox="0 0 687 655.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="translate(15.697907949458639,651.7109826589596) scale(0.9472543352601156)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-688 696.11,-688 696.11,4 -4,4"/>
+<!-- inputs -->
+<g id="node1" class="node">
+<title>inputs</title>
+<polygon fill="none" stroke="black" points="360,-684 0,-684 0,-648 360,-648 360,-684"/>
+<text text-anchor="middle" x="180" y="-661.8" font-family="Times,serif" font-size="14.00">inputs</text>
+</g>
+<!-- cu -->
+<g id="node2" class="node">
+<title>cu</title>
+<polygon fill="none" stroke="black" points="288,-396 72,-396 72,-180 288,-180 288,-396"/>
+<text text-anchor="middle" x="180" y="-283.8" font-family="Times,serif" font-size="14.00">CU</text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+<g id="edge1" class="edge">
+<title>inputs-&gt;cu</title>
+<path fill="none" stroke="black" d="M149,-647.77C149,-647.77 149,-406.13 149,-406.13"/>
+<polygon fill="black" stroke="black" points="152.5,-406.13 149,-396.13 145.5,-406.13 152.5,-406.13"/>
+<text text-anchor="middle" x="132.28" y="-531.15" font-family="Times,serif" font-size="14.00">Clock</text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+<g id="edge2" class="edge">
+<title>inputs-&gt;cu</title>
+<path fill="none" stroke="black" d="M110.5,-647.77C110.5,-647.77 110.5,-406.13 110.5,-406.13"/>
+<polygon fill="black" stroke="black" points="114,-406.13 110.5,-396.13 107,-406.13 114,-406.13"/>
+<text text-anchor="middle" x="94.95" y="-531.15" font-family="Times,serif" font-size="14.00">Reset</text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+<g id="edge3" class="edge">
+<title>inputs-&gt;cu</title>
+<path fill="none" stroke="black" d="M187.5,-647.77C187.5,-647.77 187.5,-406.13 187.5,-406.13"/>
+<polygon fill="black" stroke="black" points="191,-406.13 187.5,-396.13 184,-406.13 191,-406.13"/>
+<text text-anchor="middle" x="171.17" y="-531.15" font-family="Times,serif" font-size="14.00">Sense</text>
+</g>
+<!-- mdec -->
+<g id="node5" class="node">
+<title>mdec</title>
+<polygon fill="none" stroke="black" points="370,-612 226,-612 226,-432 370,-432 370,-612"/>
+<text text-anchor="middle" x="298" y="-517.8" font-family="Times,serif" font-size="14.00">Mouse Decoder</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="edge11" class="edge">
+<title>inputs-&gt;mdec</title>
+<path fill="none" stroke="black" d="M315.33,-647.76C315.33,-647.76 315.33,-622.08 315.33,-622.08"/>
+<polygon fill="black" stroke="black" points="318.83,-622.08 315.33,-612.08 311.83,-622.08 318.83,-622.08"/>
+<text text-anchor="middle" x="279.56" y="-622.32" font-family="Times,serif" font-size="14.00">MouseClock</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="edge12" class="edge">
+<title>inputs-&gt;mdec</title>
+<path fill="none" stroke="black" d="M270.67,-647.76C270.67,-647.76 270.67,-622.08 270.67,-622.08"/>
+<polygon fill="black" stroke="black" points="274.17,-622.08 270.67,-612.08 267.17,-622.08 274.17,-622.08"/>
+<text text-anchor="middle" x="238.4" y="-639.12" font-family="Times,serif" font-size="14.00">MouseData</text>
+</g>
+<!-- ssg -->
+<g id="node3" class="node">
+<title>ssg</title>
+<polygon fill="none" stroke="black" points="554.05,-360 431.95,-360 431.95,-216 554.05,-216 554.05,-360"/>
+<text text-anchor="middle" x="493" y="-283.8" font-family="Times,serif" font-size="14.00">7 Segment Display</text>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge4" class="edge">
+<title>cu-&gt;ssg</title>
+<path fill="none" stroke="black" d="M288.16,-288C288.16,-288 421.85,-288 421.85,-288"/>
+<polygon fill="black" stroke="black" points="421.85,-291.5 431.85,-288 421.85,-284.5 421.85,-291.5"/>
+<text text-anchor="middle" x="338.28" y="-292.2" font-family="Times,serif" font-size="14.00">Clock</text>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge5" class="edge">
+<title>cu-&gt;ssg</title>
+<path fill="none" stroke="black" d="M288.16,-324C288.16,-324 421.85,-324 421.85,-324"/>
+<polygon fill="black" stroke="black" points="421.85,-327.5 431.85,-324 421.85,-320.5 421.85,-327.5"/>
+<text text-anchor="middle" x="339.45" y="-328.2" font-family="Times,serif" font-size="14.00">Reset</text>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge6" class="edge">
+<title>cu-&gt;ssg</title>
+<path fill="none" stroke="black" d="M288.16,-252C288.16,-252 421.85,-252 421.85,-252"/>
+<polygon fill="black" stroke="black" points="421.85,-255.5 431.85,-252 421.85,-248.5 421.85,-255.5"/>
+<text text-anchor="middle" x="332.06" y="-256.2" font-family="Times,serif" font-size="14.00">Number</text>
+</g>
+<!-- outputs -->
+<g id="node7" class="node">
+<title>outputs</title>
+<polygon fill="none" stroke="black" points="434,-90 218,-90 218,-54 434,-54 434,-90"/>
+<text text-anchor="middle" x="326" y="-67.8" font-family="Times,serif" font-size="14.00">outputs</text>
+</g>
+<!-- cu&#45;&gt;outputs -->
+<g id="edge19" class="edge">
+<title>cu-&gt;outputs</title>
+<path fill="none" stroke="black" d="M253,-179.68C253,-179.68 253,-100.35 253,-100.35"/>
+<polygon fill="black" stroke="black" points="256.5,-100.35 253,-90.35 249.5,-100.35 256.5,-100.35"/>
+<text text-anchor="middle" x="230.06" y="-144.22" font-family="Times,serif" font-size="14.00">InvLED</text>
+</g>
+<!-- b2b -->
+<g id="node4" class="node">
+<title>b2b</title>
+<polygon fill="none" stroke="black" points="534.4,-144 451.6,-144 451.6,0 534.4,0 534.4,-144"/>
+<text text-anchor="middle" x="493" y="-67.8" font-family="Times,serif" font-size="14.00">Bin to BCD</text>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="edge7" class="edge">
+<title>ssg-&gt;b2b</title>
+<path fill="none" stroke="black" d="M501.29,-215.77C501.29,-215.77 501.29,-154.16 501.29,-154.16"/>
+<polygon fill="black" stroke="black" points="504.79,-154.16 501.29,-144.16 497.79,-154.16 504.79,-154.16"/>
+<text text-anchor="middle" x="478.35" y="-189.17" font-family="Times,serif" font-size="14.00">Number</text>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="edge8" class="edge">
+<title>ssg-&gt;b2b</title>
+<path fill="none" stroke="black" d="M484.71,-215.77C484.71,-215.77 484.71,-154.16 484.71,-154.16"/>
+<polygon fill="black" stroke="black" points="488.21,-154.16 484.71,-144.16 481.21,-154.16 488.21,-154.16"/>
+<text text-anchor="middle" x="493.07" y="-172.37" font-family="Times,serif" font-size="14.00">Clock</text>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="edge17" class="edge">
+<title>ssg-&gt;outputs</title>
+<path fill="none" stroke="black" d="M439.85,-215.73C439.85,-154.98 439.85,-78 439.85,-78 439.85,-78 439.27,-78 439.27,-78"/>
+<polygon fill="black" stroke="black" points="444.05,-74.5 434.05,-78 444.05,-81.5 444.05,-74.5"/>
+<text text-anchor="middle" x="418.46" y="-150.77" font-family="Times,serif" font-size="14.00">Anodes</text>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="edge18" class="edge">
+<title>ssg-&gt;outputs</title>
+<path fill="none" stroke="black" d="M445.7,-215.92C445.7,-151.1 445.7,-66 445.7,-66 445.7,-66 444.22,-66 444.22,-66"/>
+<polygon fill="black" stroke="black" points="444.22,-62.5 434.22,-66 444.22,-69.5 444.22,-62.5"/>
+<text text-anchor="middle" x="419.65" y="-127.62" font-family="Times,serif" font-size="14.00">Cathodes</text>
+</g>
+<!-- b2b&#45;&gt;ssg -->
+<g id="edge9" class="edge">
+<title>b2b-&gt;ssg</title>
+<path fill="none" stroke="black" d="M517.87,-144.23C517.87,-144.23 517.87,-205.84 517.87,-205.84"/>
+<polygon fill="black" stroke="black" points="514.37,-205.84 517.87,-215.84 521.37,-205.84 514.37,-205.84"/>
+<text text-anchor="middle" x="532.26" y="-179.23" font-family="Times,serif" font-size="14.00">BCD</text>
+</g>
+<!-- b2b&#45;&gt;ssg -->
+<g id="edge10" class="edge">
+<title>b2b-&gt;ssg</title>
+<path fill="none" stroke="black" d="M468.13,-144.23C468.13,-144.23 468.13,-205.84 468.13,-205.84"/>
+<polygon fill="black" stroke="black" points="464.63,-205.84 468.13,-215.84 471.63,-205.84 464.63,-205.84"/>
+<text text-anchor="middle" x="435.85" y="-179.23" font-family="Times,serif" font-size="14.00">BCDReady</text>
+</g>
+<!-- mdec&#45;&gt;cu -->
+<g id="edge13" class="edge">
+<title>mdec-&gt;cu</title>
+<path fill="none" stroke="black" d="M267.33,-431.86C267.33,-431.86 267.33,-406.08 267.33,-406.08"/>
+<polygon fill="black" stroke="black" points="270.83,-406.08 267.33,-396.08 263.83,-406.08 270.83,-406.08"/>
+<text text-anchor="middle" x="223.78" y="-406.37" font-family="Times,serif" font-size="14.00">MouseMessage</text>
+</g>
+<!-- mdec&#45;&gt;cu -->
+<g id="edge14" class="edge">
+<title>mdec-&gt;cu</title>
+<path fill="none" stroke="black" d="M246.67,-431.86C246.67,-431.86 246.67,-406.08 246.67,-406.08"/>
+<polygon fill="black" stroke="black" points="250.17,-406.08 246.67,-396.08 243.17,-406.08 250.17,-406.08"/>
+<text text-anchor="middle" x="208.96" y="-423.17" font-family="Times,serif" font-size="14.00">NewMessage</text>
+</g>
+<!-- mtypes -->
+<g id="node6" class="node">
+<title>mtypes</title>
+<polygon fill="none" stroke="black" points="692.21,-313 689.21,-317 668.21,-317 665.21,-313 571.79,-313 571.79,-263 692.21,-263 692.21,-313"/>
+<text text-anchor="middle" x="632" y="-283.8" font-family="Times,serif" font-size="14.00">Mouse Types Unit</text>
+</g>
+<!-- mdec&#45;&gt;mtypes -->
+<g id="edge15" class="edge">
+<title>mdec-&gt;mtypes</title>
+<path fill="none" stroke="black" d="M370.07,-552C473.59,-552 652.04,-552 652.04,-552 652.04,-552 652.04,-323.31 652.04,-323.31"/>
+<polygon fill="black" stroke="black" points="655.54,-323.31 652.04,-313.31 648.54,-323.31 655.54,-323.31"/>
+<text text-anchor="middle" x="595.07" y="-556.2" font-family="Times,serif" font-size="14.00">MouseReg</text>
+</g>
+<!-- mtypes&#45;&gt;mdec -->
+<g id="edge16" class="edge">
+<title>mtypes-&gt;mdec</title>
+<path fill="none" stroke="black" d="M611.96,-313.01C611.96,-367.49 611.96,-492 611.96,-492 611.96,-492 380.03,-492 380.03,-492"/>
+<polygon fill="black" stroke="black" points="380.03,-488.5 370.03,-492 380.03,-495.5 380.03,-488.5"/>
+<text text-anchor="middle" x="541.94" y="-496.2" font-family="Times,serif" font-size="14.00">MouseMessage</text>
+</g>
+</g>
+</svg>

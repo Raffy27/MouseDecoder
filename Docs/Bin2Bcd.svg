@@ -1,0 +1,276 @@
+<svg width="916" height="874" viewBox="0 0 687 655.5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="translate(12.800356460953832,650.9620975157592) scale(1.1344756210601927)">
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-573.8 587,-573.8 587,4 -4,4"/>
+<!-- inputs --><g id="clust4" class="cluster">
+<title>cluster_statecounter</title>
+<polygon fill="none" stroke="black" points="271,-444.8 271,-521.6 575,-521.6 575,-444.8 271,-444.8"/>
+<text text-anchor="middle" x="423" y="-505" font-family="Times,serif" font-size="14.00">StateCounter</text>
+</g>
+<g id="node1" class="node">
+<title>inputs</title>
+<polygon fill="none" stroke="black" points="422,-565.6 62,-565.6 62,-529.6 422,-529.6 422,-565.6"/>
+<text text-anchor="middle" x="242" y="-543.4" font-family="Times,serif" font-size="14.00">inputs</text>
+</g><g id="clust6" class="cluster">
+<title>cluster_reg</title>
+<polygon fill="none" stroke="black" points="8,-246 8,-322.8 334,-322.8 334,-246 8,-246"/>
+<text text-anchor="middle" x="171" y="-306.2" font-family="Times,serif" font-size="14.00">InternalReg</text>
+</g>
+<!-- cu -->
+
+<!-- inputs&#45;&gt;cu -->
+<g id="node2" class="node">
+<title>_reg0</title>
+<polygon fill="none" stroke="black" points="70,-290 16,-290 16,-254 70,-254 70,-290"/>
+<text text-anchor="middle" x="43" y="-267.8" font-family="Times,serif" font-size="14.00">D₀</text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+<g id="edge1" class="edge">
+<title>inputs-&gt;_reg0</title>
+<path fill="none" stroke="black" d="M66,-529.52C66,-529.52 66,-300.15 66,-300.15"/>
+<polygon fill="black" stroke="black" points="69.5,-300.15 66,-290.15 62.5,-300.15 69.5,-300.15"/>
+<text text-anchor="middle" x="52" y="-419.03" font-family="Times,serif" font-size="14.00">Num</text>
+</g>
+<!-- inputs&#45;&gt;cu -->
+<g id="node3" class="node">
+<title>_reg1</title>
+<polygon fill="none" stroke="black" points="142,-290 88,-290 88,-254 142,-254 142,-290"/>
+<text text-anchor="middle" x="115" y="-267.8" font-family="Times,serif" font-size="14.00">D₁</text>
+</g>
+<!-- mdec -->
+<g id="edge2" class="edge">
+<title>inputs-&gt;_reg1</title>
+<path fill="none" stroke="black" d="M115,-529.52C115,-529.52 115,-300.15 115,-300.15"/>
+<polygon fill="black" stroke="black" points="118.5,-300.15 115,-290.15 111.5,-300.15 118.5,-300.15"/>
+<text text-anchor="middle" x="101" y="-419.03" font-family="Times,serif" font-size="14.00">Num</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="node4" class="node">
+<title>_regdot</title>
+<polygon fill="none" stroke="black" points="214,-290 160,-290 160,-254 214,-254 214,-290"/>
+<text text-anchor="middle" x="187" y="-267.8" font-family="Times,serif" font-size="14.00">...</text>
+</g>
+<!-- inputs&#45;&gt;mdec -->
+<g id="edge3" class="edge">
+<title>inputs-&gt;_regdot</title>
+<path fill="none" stroke="black" d="M187,-529.52C187,-529.52 187,-300.15 187,-300.15"/>
+<polygon fill="black" stroke="black" points="190.5,-300.15 187,-290.15 183.5,-300.15 190.5,-300.15"/>
+<text text-anchor="middle" x="173" y="-419.03" font-family="Times,serif" font-size="14.00">Num</text>
+</g>
+<!-- ssg -->
+<g id="node5" class="node">
+<title>_regn</title>
+<polygon fill="none" stroke="black" points="286,-290 232,-290 232,-254 286,-254 286,-290"/>
+<text text-anchor="middle" x="259" y="-267.8" font-family="Times,serif" font-size="14.00">D₄</text>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge4" class="edge">
+<title>inputs-&gt;_regn</title>
+<path fill="none" stroke="black" d="M243.5,-529.52C243.5,-529.52 243.5,-300.15 243.5,-300.15"/>
+<polygon fill="black" stroke="black" points="247,-300.15 243.5,-290.15 240,-300.15 247,-300.15"/>
+<text text-anchor="middle" x="229.5" y="-419.03" font-family="Times,serif" font-size="14.00">Num</text>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="node6" class="node">
+<title>_wnode</title>
+<ellipse fill="none" stroke="black" cx="315" cy="-272" rx="11" ry="11"/>
+</g>
+<!-- cu&#45;&gt;ssg -->
+<g id="edge5" class="edge">
+<title>inputs-&gt;_wnode</title>
+<path fill="none" stroke="black" d="M255,-529.22C255,-472.33 255,-303 255,-303 255,-303 308.4,-303 308.4,-303 308.4,-303 308.4,-290.8 308.4,-290.8"/>
+<polygon fill="black" stroke="black" points="311.9,-290.8 308.4,-280.8 304.9,-290.8 311.9,-290.8"/>
+<text text-anchor="middle" x="238.28" y="-387.51" font-family="Times,serif" font-size="14.00">Clock</text>
+</g>
+<!-- outputs -->
+<g id="edge7" class="edge">
+<title>inputs-&gt;_wnode</title>
+<path fill="none" stroke="black" d="M266.5,-529.51C266.5,-475.14 266.5,-317 266.5,-317 266.5,-317 312.8,-317 312.8,-317 312.8,-317 312.8,-292.89 312.8,-292.89"/>
+<polygon fill="black" stroke="black" points="316.3,-292.89 312.8,-282.89 309.3,-292.89 316.3,-292.89"/>
+<text text-anchor="middle" x="266.5" y="-375.45" font-family="Times,serif" font-size="14.00">Reset</text>
+</g>
+<!-- cu&#45;&gt;outputs -->
+<g id="node7" class="node">
+<title>reg0</title>
+<polygon fill="none" stroke="black" points="567,-488.8 513,-488.8 513,-452.8 567,-452.8 567,-488.8"/>
+<text text-anchor="middle" x="540" y="-466.6" font-family="Times,serif" font-size="14.00">D₀</text>
+</g>
+<!-- b2b -->
+<g id="edge6" class="edge">
+<title>inputs-&gt;reg0</title>
+<path fill="none" stroke="black" d="M422.36,-553C489.18,-553 549,-553 549,-553 549,-553 549,-499.04 549,-499.04"/>
+<polygon fill="black" stroke="black" points="552.5,-499.04 549,-489.04 545.5,-499.04 552.5,-499.04"/>
+<text text-anchor="middle" x="495.94" y="-557.2" font-family="Times,serif" font-size="14.00">Clock</text>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="edge8" class="edge">
+<title>inputs-&gt;reg0</title>
+<path fill="none" stroke="black" d="M422.15,-541C480.75,-541 531,-541 531,-541 531,-541 531,-498.88 531,-498.88"/>
+<polygon fill="black" stroke="black" points="534.5,-498.88 531,-488.88 527.5,-498.88 534.5,-498.88"/>
+<text text-anchor="middle" x="482.09" y="-528.4" font-family="Times,serif" font-size="14.00">Reset</text>
+</g>
+<!-- ssg&#45;&gt;b2b -->
+<g id="edge9" class="edge">
+<title>_reg0-&gt;_reg1</title>
+<path fill="none" stroke="black" d="M70.22,-278C70.22,-278 77.74,-278 77.74,-278"/>
+<polygon fill="black" stroke="black" points="77.74,-281.5 87.74,-278 77.74,-274.5 77.74,-281.5"/>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="node13" class="node">
+<title>mux</title>
+<polygon fill="none" stroke="black" points="118.93,-108 245.07,-108 290,-144 74,-144 118.93,-108"/>
+<text text-anchor="middle" x="182" y="-121.8" font-family="Times,serif" font-size="14.00">MUX [3]</text>
+</g>
+<!-- ssg&#45;&gt;outputs -->
+<g id="edge18" class="edge">
+<title>_reg0-&gt;mux</title>
+<path fill="none" stroke="black" d="M70.21,-266C76.3,-266 81,-266 81,-266 81,-266 81,-136.1 81,-136.1"/>
+<polygon fill="black" stroke="black" points="84.5,-136.1 81,-126.1 77.5,-136.1 84.5,-136.1"/>
+</g>
+<!-- b2b&#45;&gt;ssg -->
+<g id="edge10" class="edge">
+<title>_reg1-&gt;_regdot</title>
+<path fill="none" stroke="black" d="M142.22,-272C142.22,-272 149.74,-272 149.74,-272"/>
+<polygon fill="black" stroke="black" points="149.74,-275.5 159.74,-272 149.74,-268.5 149.74,-275.5"/>
+</g>
+<!-- b2b&#45;&gt;ssg -->
+<g id="edge19" class="edge">
+<title>_reg1-&gt;mux</title>
+<path fill="none" stroke="black" d="M115,-253.8C115,-253.8 115,-154.43 115,-154.43"/>
+<polygon fill="black" stroke="black" points="118.5,-154.43 115,-144.43 111.5,-154.43 118.5,-154.43"/>
+</g>
+<!-- mdec&#45;&gt;cu -->
+<g id="edge11" class="edge">
+<title>_regdot-&gt;_regn</title>
+<path fill="none" stroke="black" d="M214.22,-272C214.22,-272 221.74,-272 221.74,-272"/>
+<polygon fill="black" stroke="black" points="221.74,-275.5 231.74,-272 221.74,-268.5 221.74,-275.5"/>
+</g>
+<!-- mdec&#45;&gt;cu -->
+<g id="edge20" class="edge">
+<title>_regdot-&gt;mux</title>
+<path fill="none" stroke="black" d="M187,-253.8C187,-253.8 187,-154.43 187,-154.43"/>
+<polygon fill="black" stroke="black" points="190.5,-154.43 187,-144.43 183.5,-154.43 190.5,-154.43"/>
+</g>
+<!-- mtypes -->
+<g id="edge21" class="edge">
+<title>_regn-&gt;mux</title>
+<path fill="none" stroke="black" d="M259,-253.8C259,-253.8 259,-154.43 259,-154.43"/>
+<polygon fill="black" stroke="black" points="262.5,-154.43 259,-144.43 255.5,-154.43 262.5,-154.43"/>
+</g>
+<!-- mdec&#45;&gt;mtypes -->
+<g id="node12" class="node">
+<title>sel_logic</title>
+<polygon fill="none" stroke="black" points="426,-416.8 282,-416.8 282,-330.8 426,-330.8 426,-416.8"/>
+<text text-anchor="middle" x="354" y="-369.6" font-family="Times,serif" font-size="14.00">State Selection Logic</text>
+</g>
+<!-- mtypes&#45;&gt;mdec -->
+<g id="edge12" class="edge">
+<title>reg0-&gt;sel_logic</title>
+<path fill="none" stroke="black" d="M540,-452.57C540,-431.59 540,-400 540,-400 540,-400 436.18,-400 436.18,-400"/>
+<polygon fill="black" stroke="black" points="436.18,-396.5 426.18,-400 436.18,-403.5 436.18,-396.5"/>
+</g>
+
+<g id="node8" class="node">
+<title>reg1</title>
+<polygon fill="none" stroke="black" points="495,-488.8 441,-488.8 441,-452.8 495,-452.8 495,-488.8"/>
+<text text-anchor="middle" x="468" y="-466.6" font-family="Times,serif" font-size="14.00">D₁</text>
+</g>
+<!-- reg1&#45;&gt;sel_logic -->
+<g id="edge13" class="edge">
+<title>reg1-&gt;sel_logic</title>
+<path fill="none" stroke="black" d="M469.5,-452.64C469.5,-434.09 469.5,-408 469.5,-408 469.5,-408 436.16,-408 436.16,-408"/>
+<polygon fill="black" stroke="black" points="436.16,-404.5 426.16,-408 436.16,-411.5 436.16,-404.5"/>
+</g>
+<!-- regdot -->
+<g id="node9" class="node">
+<title>regdot</title>
+<polygon fill="none" stroke="black" points="423,-488.8 369,-488.8 369,-452.8 423,-452.8 423,-488.8"/>
+<text text-anchor="middle" x="396" y="-466.6" font-family="Times,serif" font-size="14.00">...</text>
+</g>
+<!-- regdot&#45;&gt;sel_logic -->
+<g id="edge14" class="edge">
+<title>regdot-&gt;sel_logic</title>
+<path fill="none" stroke="black" d="M396,-452.56C396,-452.56 396,-426.92 396,-426.92"/>
+<polygon fill="black" stroke="black" points="399.5,-426.92 396,-416.92 392.5,-426.92 399.5,-426.92"/>
+</g>
+<!-- regn -->
+<g id="node10" class="node">
+<title>regn</title>
+<polygon fill="none" stroke="black" points="351,-488.8 297,-488.8 297,-452.8 351,-452.8 351,-488.8"/>
+<text text-anchor="middle" x="324" y="-466.6" font-family="Times,serif" font-size="14.00">D₄</text>
+</g>
+<!-- regn&#45;&gt;sel_logic -->
+<g id="edge15" class="edge">
+<title>regn-&gt;sel_logic</title>
+<path fill="none" stroke="black" d="M324,-452.56C324,-452.56 324,-426.92 324,-426.92"/>
+<polygon fill="black" stroke="black" points="327.5,-426.92 324,-416.92 320.5,-426.92 327.5,-426.92"/>
+</g>
+<!-- wnode -->
+<!-- sel_logic&#45;&gt;_wnode -->
+<g id="edge16" class="edge">
+<title>sel_logic-&gt;_wnode</title>
+<path fill="none" stroke="black" d="M321.6,-330.63C321.6,-330.63 321.6,-291.17 321.6,-291.17"/>
+<polygon fill="black" stroke="black" points="325.1,-291.17 321.6,-281.17 318.1,-291.17 325.1,-291.17"/>
+<text text-anchor="middle" x="318.1" y="-298.3" font-family="Times,serif" font-size="14.00">1</text>
+<text text-anchor="middle" x="331.52" y="-285.37" font-family="Times,serif" font-size="14.00">PL </text>
+</g>
+<!-- sel_logic&#45;&gt;_wnode -->
+<g id="edge17" class="edge">
+<title>sel_logic-&gt;_wnode</title>
+<path fill="none" stroke="black" d="M317.2,-330.63C317.2,-330.63 317.2,-292.81 317.2,-292.81"/>
+<polygon fill="black" stroke="black" points="320.7,-292.81 317.2,-282.81 313.7,-292.81 320.7,-292.81"/>
+<text text-anchor="middle" x="313.7" y="-315.92" font-family="Times,serif" font-size="14.00">2</text>
+<text text-anchor="middle" x="337.81" y="-270.21" font-family="Times,serif" font-size="14.00">MODE</text>
+</g>
+<!-- adder -->
+<g id="node14" class="node">
+<title>adder</title>
+<polygon fill="none" stroke="black" points="254,-72 110,-72 110,0 254,0 254,-72"/>
+<text text-anchor="middle" x="182" y="-31.8" font-family="Times,serif" font-size="14.00">Adder</text>
+</g>
+<!-- sel_logic&#45;&gt;adder -->
+<g id="edge22" class="edge">
+<title>sel_logic-&gt;adder</title>
+<path fill="none" stroke="black" d="M297,-330.67C297,-239.61 297,-36 297,-36 297,-36 264.18,-36 264.18,-36"/>
+<polygon fill="black" stroke="black" points="264.18,-32.5 254.18,-36 264.18,-39.5 264.18,-32.5"/>
+<text text-anchor="middle" x="293.5" y="-171.13" font-family="Times,serif" font-size="14.00">3</text>
+<text text-anchor="middle" x="273.61" y="-40.2" font-family="Times,serif" font-size="14.00">Enable</text>
+</g>
+<!-- output -->
+<g id="node16" class="node">
+<title>output</title>
+<polygon fill="none" stroke="black" points="498,-391.8 444,-391.8 444,-355.8 498,-355.8 498,-391.8"/>
+<text text-anchor="middle" x="471" y="-369.6" font-family="Times,serif" font-size="14.00">output</text>
+</g>
+<!-- sel_logic&#45;&gt;output -->
+<g id="edge26" class="edge">
+<title>sel_logic-&gt;output</title>
+<path fill="none" stroke="black" d="M426.1,-373C426.1,-373 433.77,-373 433.77,-373"/>
+<polygon fill="black" stroke="black" points="433.77,-376.5 443.77,-373 433.77,-369.5 433.77,-376.5"/>
+<text text-anchor="middle" x="433.44" y="-377.2" font-family="Times,serif" font-size="14.00">4</text>
+</g>
+<!-- mux&#45;&gt;adder -->
+<g id="edge23" class="edge">
+<title>mux-&gt;adder</title>
+<path fill="none" stroke="black" d="M182,-107.79C182,-107.79 182,-82.04 182,-82.04"/>
+<polygon fill="black" stroke="black" points="185.5,-82.04 182,-72.04 178.5,-82.04 185.5,-82.04"/>
+</g>
+<!-- adder&#45;&gt;_reg0 -->
+<g id="edge25" class="edge">
+<title>adder-&gt;_reg0</title>
+<path fill="none" stroke="black" d="M109.77,-63C80.74,-63 54,-63 54,-63 54,-63 54,-243.82 54,-243.82"/>
+<polygon fill="black" stroke="black" points="50.5,-243.82 54,-253.82 57.5,-243.82 50.5,-243.82"/>
+</g>
+<!-- 3 -->
+<g id="node15" class="node">
+<title>3</title>
+<polygon fill="none" stroke="black" points="92,-54 38,-54 38,-18 92,-18 92,-54"/>
+<text text-anchor="middle" x="65" y="-31.8" font-family="Times,serif" font-size="14.00">3</text>
+</g>
+<!-- 3&#45;&gt;adder -->
+<g id="edge24" class="edge">
+<title>3-&gt;adder</title>
+<path fill="none" stroke="black" d="M92.14,-36C92.14,-36 99.57,-36 99.57,-36"/>
+<polygon fill="black" stroke="black" points="99.57,-39.5 109.57,-36 99.57,-32.5 99.57,-39.5"/>
+</g>
+</g>
+</svg>

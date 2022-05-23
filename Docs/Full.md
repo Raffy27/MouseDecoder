@@ -1,14 +1,13 @@
 # Mouse Interfacing
 > A18 - FPGA and mouse application
 
-2022
-<name here>
+23 May 2022
 
 ## Problem Statement
 
 Implement an application that allows the user to count the number of mouse clicks.
 Functional requirements:
-* Extisting RESET button that will clear the SSD display (status "0000")
+* Existing RESET button that will clear the SSD display (status "0000")
 * The current status is displayed on the SSD
 * Pressing the left mouse button will increase the current status
 * Pressing the right mouse button will decrease the current status
@@ -21,8 +20,8 @@ The project will be carried out by **2 students.**
 
 To ensure the internal consistency of the project, the following changes have been made to the terminology:
 * increase -> increment, decrease -> decrement
-* IS_LEFT -> leftmost LED
-* REVERSE -> rightmost switch
+* IS_LEFT -> leftmost LED (L1)
+* REVERSE -> rightmost switch (V17)
 
 Naming convention and capitalization throughout the project is PascalCase, except for types provided by built-in libraries. Single letter variables usually represent temporary or otherwise less significant bits of data.
 
@@ -56,7 +55,7 @@ A Git repository with the full source code in VHDL and the resulting bitstream i
 
 ### Communication
 
-Communication with the mouse takes place through an integrated USB port, and a PS/2 decoder, which makes it easier to work with external devices. Accoring to the documentation of this protocol, two inputs are generated: a clock input for notifying the receiving circuitry of the fact that there is new data present, and the actual data input that should be processed.
+Communication with the mouse takes place through an integrated USB port, and a PS/2 decoder, which makes it easier to work with external devices. According to the documentation of this protocol, two inputs are generated: a clock input for notifying the receiving circuitry of the fact that there is new data present, and the actual data input that should be processed.
 
 A valid transmission from the mouse is defined in the following table.
 |  | Bit 7 | Bit 6 | Bit 5 | Bit 4 | Bit 3 | Bit 2 | Bit 1 | Bit 0 |
@@ -166,22 +165,30 @@ A `Reset` signal acts asynchronously on the whole project, setting the internal 
 
 This project also supports a Debug mode, which is activated by toggling the `DebugSw` input. In this mode, details about the arriving mouse packets (such as whether the buttons are pressed, the movement bytes are currently changing, an overflow occurred, etc.) are displayed on a row of LEDs. See below for details.
 
-It can be noted that the project also supports simultaneous clicks: if both mouse buttons are pressed at the same time, both of them will take effect as soon as they are released, even though there was a time where they were "overlapping".
+It can be noted that the project also supports simultaneous clicks: if both mouse buttons are pressed at the same time, both of them will take effect as soon as they are released, even though there was a time when they were "overlapping".
 
 ### Alternative Solutions
 
-A less sophisticated, but more intuitive solution would be to use a simple modulo-43 counter to count the number of bits sent by the mouse, and process the relevant bits according to this counter (every first bit is interpreted as a left click, and so on). This would reduce the cost and complexity of the solution because it would eliminate the need for intermediate registers, but it does not offer the versatility of the current solution, which in turn achieves true interfacing by parsing the packets.
+A less sophisticated, but more intuitive solution would be to use a simple modulo-43 counter to count the number of bits sent by the mouse and process the relevant bits according to this counter (every first bit is interpreted as a left click, and so on). This would reduce the cost and complexity of the solution because it would eliminate the need for intermediate registers, but it does not offer the versatility of the current solution, which in turn achieves true interfacing by parsing the packets.
 
 ## Debugging
 
 In order to perform debugging and figure out what goes wrong for generic transmissions, packets were fragmented and displayed using the available LEDs. The binary sequence was then manually transferred and used as input for a Python script which decoded it into a human-readable format.
 
-The script I wrote can be found [here.](https://gist.github.com/)
+The script I wrote can be found [here](https://gist.github.com/Raffy27/8311754d9b667e47b5c9f626ba171ad6).
 
 An example of its output is shown below.
 ```json
 {
-    "actual": "output"
+    "left": true,
+    "middle": false,
+    "right": false,
+    "x_overflow": false,
+    "y_overflow": false,
+    "x": 5,
+    "y": -4,
+    "z": 1,
+    "checks": true
 }
 ```
 
@@ -198,7 +205,7 @@ Num(n) represents the lower bits of the internal state. Using these bits of info
 
 This is an animated showcase of the solution. The third LED from the left signifies a left click, and the fifth one a right click. The ones after that light up when the mouse moves, and the rightmost LEDs represent the last bits of the internal state.
 
-## Acknowledgements
+## Acknowledgments
 The PS/2 Mouse/Keyboard Protocol - Adam Chapweske, 1999
 https://web.archive.org/web/20040928085222/http://panda.cs.ndsu.nodak.edu/~achapwes/PICmicro/PS2/ps2.htm
 

@@ -4,7 +4,7 @@ digraph {
 
 	inputs [width=7]
 
-	counter [label="Counter mod 42" shape=box height=1.5]
+	counter [label="Counter mod 43" shape=box height=1.5]
 	inputs -> mcdiv [headlabel="MouseClock " arrowhead=none]
 	mcdiv [shape=point style=invis]
 	mcdiv -> { counter reg0 }
